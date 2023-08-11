@@ -1,20 +1,51 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# bGreen Template Reactjs <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fteguhoktian%2Fbgreen-template.git&text=Free%20mobile%20friendly%20Reactjs%20Tailwind%20Template%20on%20Github" target="_blank">![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)</a>
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+![bGreen Template](https://github.com/teguhoktian/bgreen-template/blob/master/public/bGreenMockUp.png?raw=true)
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+### Get Started
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+- Install NodeJS **LTS** version from <a href="https://nodejs.org/en/">NodeJs Official Page</a>
+- Download the product on this page
+- Unzip the downloaded file to a folder in your computer
+- Open Terminal
+- Go to your file project (where you’ve unzipped the product)
+- (If you are on a linux based terminal) Simply run `npm run install:clean`
+- (If not) Run in terminal `npm install`
+- (If not) Run in terminal `npm run build` for build your project
+- (If not) Run in terminal `npm run dev`
+- Navigate to https://localhost:3000
+- Check more about [Tailwind CSS](https://tailwindcss.com/)
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+### Pages
+
+There some simple of sample pages that i created on this template.
+
+Here are all the page from the project:
+
+- Dashboard
+- Halaman
+  - Blank
+  - 404 Not Found
+- Table dan Form
+  - Table
+  - Form
+- Otentikasi
+  - Login
+  - Register
+
+### Fully Responsive
+
+This template provides Responsive Navigation and Mobile Friendly Feature based on Tailwind CSS and Javascript.
+
+### Licensing
+
+- Copyright 2023 [Raincode.My.Id](https://raincode.my.id)
+- Licensed under **MIT**
+
+### Demo
+
+Demo: <a href="https://thriving-kataifi-7c5d45.netlify.app/">Demo with Netlify</a>
+
+### Donation
+
+Buy Me some Cofee and Snack with Donate me at [Saweria](https://saweria.co/raincodemyid)
