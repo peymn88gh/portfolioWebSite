@@ -1,0 +1,96 @@
+{
+  "authMenu": [
+    {
+      "label": "StartPage",
+      "path": "/",
+      "icon": "faHome"
+    },
+    {
+      "label": "Dashboard",
+      "path": "/Dashboard",
+      "icon": "faTachometer"
+    },
+    {
+      "label": "Contact",
+      "path": "/Contact",
+      "icon": "faTachometer"
+    },
+    {
+      "label": "System"
+    },
+    {
+      "label": "Blank",
+      "path": "/blank",
+      "icon": "faPage4"
+    },
+    {
+      "label": "404",
+      "path": "/404",
+      "icon": "faNotdef"
+    },
+    {
+      "label": "Table and Form"
+    },
+    {
+      "label": "Form",
+      "path": "/form",
+      "icon": "faWindows"
+    },
+    {
+      "label": "Table",
+      "path": "/table",
+      "icon": "faTable"
+    },
+    {
+      "label": "User and Auth"
+    },
+    {
+      "label": "Login",
+      "path": "/auth/login",
+      "icon": "faLock"
+    },
+    {
+      "label": "Register",
+      "path": "/auth/register",
+      "icon": "faNoteSticky"
+    }
+  ],
+  "guestMenu": [
+    {
+      "label": "StartPage",
+      "path": "/",
+      "icon": "faHome"
+    },
+    {
+      "label": "Contact",
+      "path": "/Contact",
+      "icon": "faTachometer"
+    },
+    {
+      "label": "Table and Form"
+    },
+    {
+      "label": "Form",
+      "path": "/form",
+      "icon": "faWindows"
+    },
+    {
+      "label": "Table",
+      "path": "/table",
+      "icon": "faTable"
+    },
+    {
+      "label": "User and Auth"
+    },
+    {
+      "label": "Login",
+      "path": "/auth/login",
+      "icon": "faLock"
+    },
+    {
+      "label": "Register",
+      "path": "/auth/register",
+      "icon": "faNoteSticky"
+    }
+  ]
+}
