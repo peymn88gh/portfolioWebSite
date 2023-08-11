@@ -1,0 +1,14 @@
+.homebackground {
+    background-image: url('/public/examplefreepic.jpg');
+    background-size: cover;
+    background-position: center center;
+    min-height:700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-container {
+    text-align: center;
+    color: white; 
+}
