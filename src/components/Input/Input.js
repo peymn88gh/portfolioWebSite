@@ -80,7 +80,7 @@ function Input({type, label, name, value, onChange, placeholder, error, icon, cu
   };
 
     return (
-        <div className="flex flex-col mb-3">
+        <div className="flex flex-col">
             {label && <label htmlFor={name} className="text-sm text-gray-600">{label}</label>}
             <div className="relative">
                 {icon && <div
