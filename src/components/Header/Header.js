@@ -56,6 +56,7 @@ const Header = () => {
           <ul className="flex items-center space-x-4">
             <li><NavLink to="/" activeClassName="active" exact onClick={scrollToTop}>Home</NavLink></li>
             <li><NavLink to="/jobs" activeClassName="active">Jobs</NavLink></li>
+            <li><NavLink to="/apply" activeClassName="active">Apply</NavLink></li>
             <li><NavLink to="/about" activeClassName="active">About Us</NavLink></li>
             <li><ScrollLink to="services" smooth={true} offset={-70}>Services</ScrollLink></li>
           </ul>

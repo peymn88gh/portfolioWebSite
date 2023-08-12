@@ -1,7 +1,5 @@
 import { Element } from 'react-scroll'
 import './Home.css'
-import Contact from 'components/Contact/Contact.jsx'
-
 
 export default function(){
     return <>
@@ -16,7 +14,6 @@ export default function(){
                 </button>
             </div>
         </div>
-        <Contact/>
         <Element name="services" className="services bg-gray-100 py-10">
            <div className='h-10'>
                 <p>this is services</p>
