@@ -6,7 +6,7 @@ import Header from "./Header/Header";
 function Layout({ children }) {
   return (
       <>
-        <div className="flex min-h-screen font-Poppins">
+        <div className="flex min-h-screen font-Poppins relative">
           <div className="flex flex-1 flex-col bg-slate-100">
             <Header />
             <Outlet />
