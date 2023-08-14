@@ -18,8 +18,7 @@ import {useTranslation} from "react-i18next";
 import {useAlertContext} from "utils/alertUtils";
 import {Input} from "components";
 
-import {SMTPClient, Message} from "emailjs";
-
+import axios from "axios";
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
@@ -51,32 +50,44 @@ function ContactForm() {
     const navigate = useNavigate();
 
     const submitHandle = (data) => {
-
-        // const client = new SMTPClient({
-        //     user: 'user',
-        //     password: 'password',
-        //     host: 'smtp-mail.outlook.com',
-        //     tls: {
-        //         ciphers: 'SSLv3',
-        //     },
-        // });
-        //
-        // const message = new Message({
-        //     text: 'i hope this works',
-        //     from: 'you <username@outlook.com>',
-        //     to: 'someone <someone@your-email.com>, another <another@your-email.com>',
-        //     cc: 'else <else@your-email.com>',
-        //     subject: 'testing emailjs',
-        //     attachment: [
-        //         { data: '<html>i <i>hope</i> this works!</html>', alternative: true },
-        //         { path: 'path/to/file.zip', type: 'application/zip', name: 'renamed.zip' },
-        //     ],
-        // });
-        //
-        // // send the message and get a callback with an error or details of the message that was sent
-        // client.send(message, (err, message) => {
-        //     console.log(err || message);
-        // });
+        const infoEmail = process.env.REACT_APP_INFO_EMAIL;
+        if (!infoEmail) {
+            showAlert('failed', t("failed" + "!"))
+            return;
+        }
+        const emailData = {
+            "ToEmail": infoEmail,
+            "Body": "Name: "+ data.fullName +"\n E-mail: "+ data.email +"\n country: "+ data.country +"\n phone: "+ data.phone + "\n message " + data.message,
+            "UserId": localStorage.getItem('id') || 0,
+            "Subject": data.email,
+            "Attachments": data.file,
+        }
+        if (localStorage.getItem("token")) {
+            const emailApi = process.env.REACT_APP_BASE_URL + '/EMail/send';
+            const tHead = {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+            const tokenRequestOptions = {
+                method: 'POST',
+                headers: tHead,
+                body: JSON.stringify(emailData),
+                url: emailApi,
+            };
+            axios(tokenRequestOptions)
+                .then(r => {
+                    showAlert('success', t("messageSentSuccessfully"));
+                    navigate("/auth/login")
+                })
+                .catch(error => {
+                    if (error?.response?.status === 401)
+                        showAlert('failed', t("needToLogin"))
+                    else
+                        showAlert('failed', t("failedToSendMessage" + "!"))
+                })
+        } else {
+            showAlert('failed', t("needToLogin"))
+        }
     };
     const CountrySelect = ({value, onChange, labels, ...rest}) => (
         <select {...rest} value={value} onChange={(event) => onChange(event.target.value || undefined)}>
