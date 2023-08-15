@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {Switch} from '@headlessui/react'
 import PhoneInput from 'react-phone-input-2'
 import {useNavigate} from "react-router-dom";
@@ -24,20 +24,21 @@ function classNames(...classes) {
 }
 
 
-export default function Contact() {
+export default function Contact({ applyInfo }) {
+    console.log(applyInfo,'applyinfo');
     const [t] = useTranslation('common');
 
     return (
         <>
-            <main className="h-full">
+            <main className="">
                 {/* Welcome Header */}
-                <div className="mainCard">
-                    <div className="isolate bg-white px-6 py-24 sm:py-12 lg:px-8">
+                <div className="">
+                    <div className=" px-6 py-24 sm:py-12 lg:px-8">
                         <div className="mx-auto max-w-2xl text-center">
-                            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{t("apply")}</h2>
+                            <h2 className="text-3xl font-bold">{t("apply")}</h2>
 
                         </div>
-                        <ContactForm/>
+                        <ContactForm applyInfo={applyInfo}/>
 
                     </div>
                 </div>
@@ -46,10 +47,9 @@ export default function Contact() {
     )
 }
 
-function ContactForm() {
-    const navigate = useNavigate();
-
-    const submitHandle = (data) => {
+function ContactForm({ applyInfo }) {
+    const [loading , setLoading] = useState(false);
+    async function submitHandle(data) {
         const infoEmail = process.env.REACT_APP_INFO_EMAIL;
         if (!infoEmail) {
             showAlert('failed', t("failed" + "!"))
@@ -59,34 +59,39 @@ function ContactForm() {
             "ToEmail": infoEmail,
             "Body": "Name: "+ data.fullName +"\n E-mail: "+ data.email +"\n country: "+ data.country +"\n phone: "+ data.phone + "\n message " + data.message,
             "UserId": localStorage.getItem('id') || 0,
-            "Subject": data.email,
+            "Subject": `Application for ${applyInfo.role}`,
             "Attachments": data.file,
         }
-        if (localStorage.getItem("token")) {
-            const emailApi = process.env.REACT_APP_BASE_URL + '/EMail/send';
-            const tHead = {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + localStorage.getItem("token")
-            }
-            const tokenRequestOptions = {
-                method: 'POST',
-                headers: tHead,
-                body: JSON.stringify(emailData),
-                url: emailApi,
-            };
-            axios(tokenRequestOptions)
-                .then(r => {
-                    showAlert('success', t("messageSentSuccessfully"));
-                    navigate("/auth/login")
-                })
-                .catch(error => {
-                    if (error?.response?.status === 401)
-                        showAlert('failed', t("needToLogin"))
-                    else
-                        showAlert('failed', t("failedToSendMessage" + "!"))
-                })
-        } else {
-            showAlert('failed', t("needToLogin"))
+        try{
+            setLoading(true)
+            showAlert('loading', 'sending ...')
+            const tokenResponse = await axios.post(`${process.env.REACT_APP_TOKEN_ENDPOINT}`, {'username':process.env.REACT_APP_ADMIN_USERNAME, 'password': process.env.REACT_APP_ADMIN_PASSWORD},{
+                headers: {
+                    "Content-Type": "application/json",
+                },   
+                });
+            const {token} = tokenResponse.data;
+            const emailRequest = await axios.post(`${process.env.REACT_APP_BASE_URL}/EMail/send`
+                ,{
+                    'ToEmail':infoEmail,
+                    'FromEmail': data.email,
+                    'Subject':`Application for ${applyInfo.role}`,
+                    'Body' : "Name: "+ data.fullName +"\n E-mail: "+ data.email +"\n country: "+ data.country +"\n phone: "+ data.phone + "\n message " + data.message,
+                    'UserId': 0,
+                    'Attachments': data.file,
+        },{
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}` 
+                    },   
+            });
+            if(emailRequest.statusText==='OK') showAlert('success', t("messageSentSuccessfully"));
+        }
+        catch(err) {
+            showAlert('failed', t("failedToSendMessage" + "!"))
+        }
+        finally {
+            setLoading(false)
         }
     };
     const CountrySelect = ({value, onChange, labels, ...rest}) => (
@@ -122,7 +127,7 @@ function ContactForm() {
 
     return (
         <form onSubmit={handleSubmit(submitHandle)} className="mx-auto mt-8 sm:mt-20 max-w-3xl">
-            <div className="block grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div className=" grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                 {/*name*/}
                 <div className="flex flex-col">
                     <Controller
@@ -304,7 +309,7 @@ function ContactForm() {
 
             <div className="mt-10">
                 <button
-                    // disabled={formData.loading || !formData.agreed}
+                    disabled={loading}
                     title="send"
                     type="submit"
                     // className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -319,3 +324,4 @@ function ContactForm() {
         </form>
     )
 }
+
