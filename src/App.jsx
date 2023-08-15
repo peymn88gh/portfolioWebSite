@@ -7,6 +7,7 @@ import Home from "pages/Home/Home";
 import Jobs from "pages/Jobs/Jobs";
 import JobDetail from "pages/Jobs/JobDetail";
 import AboutUs from "pages/AboutUs";
+import Contact from "pages/Contact"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/jobs" element={<Jobs />} />
           <Route path="/jobs/:jobId" element={<JobDetail />} /> {/* Add a route for job detail */}
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/apply" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

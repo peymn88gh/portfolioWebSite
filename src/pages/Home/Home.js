@@ -28,12 +28,12 @@ function handleScrollToTop(){
             <div onClick={handleScrollToBottom} className=" absolute bottom-16 left-1/2 border-2 border-slate-300 rounded-full p-4 mb-4">
                 <FontAwesomeIcon icon={faArrowDown} className=' animate-bounce text-slate-300'/>
             </div>
-            
+
         </div>
         <Element name="services" className="services bg-gray-100 py-10">
            <Services  data={initservice.data}/>
         </Element>
-        
+
         <div onClick={handleScrollToTop} className=" absolute bottom-14 right-9 border-2 border-slate-500 rounded-full p-4 mb-4">
             <FontAwesomeIcon icon={faArrowUp} className=' animate-bounce text-slate-500'/>
         </div>
