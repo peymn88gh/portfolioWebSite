@@ -67,6 +67,8 @@
     "policy": "Policy",
     "send": "Send",
     "contactSales": "Contact Sales",
-    "IsTooShort": "is too short"
+    "IsTooShort": "is too short",
+
+    "aboutUs": "About Us"
 
 }

@@ -1,0 +1,40 @@
+{
+    "data" : [
+        {
+            "img": "/examplefreepic.jpg",
+            "imageAlt" :"this is sample photo",
+            "title" : "title of service1",
+            "subtitle" : "moto of service",
+            "price" : "201 $"
+        },
+        {
+            "img": "/examplefreepic.jpg",
+            "imageAlt" :"this is sample photo",
+            "title" : "title of service2",
+            "subtitle" : "moto of service",
+            "price" : "201 $"
+        },
+        {
+            "img": "/examplefreepic.jpg",
+            "imageAlt" :"this is sample photo",
+            "title" : "title of service3",
+            "subtitle" : "moto of service",
+            "price" : "201 $"
+        },
+        {
+            "img": "/examplefreepic.jpg",
+            "imageAlt" :"this is sample photo",
+            "title" : "title of service4",
+            "subtitle" : "moto of service",
+            "price" : "201 $"
+        },
+        {
+            "img": "/examplefreepic.jpg",
+            "imageAlt" :"this is sample photo",
+            "title" : "title of service5",
+            "subtitle" : "moto of service",
+            "price" : "201 $"
+        }
+    ]
+
+}

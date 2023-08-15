@@ -1,6 +1,19 @@
-import { Element } from 'react-scroll'
-import './Home.css'
-export default function(){
+import React from 'react';
+import { forwardRef } from 'react';
+import { Element, animateScroll } from 'react-scroll';
+import './Home.css';
+import Services from 'components/Services/Services';
+import initservice from "data/services.json";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+
+export default function Home(){
+function handleScrollToBottom(){
+    animateScroll.scrollTo(1000);
+}
+function handleScrollToTop(){
+    animateScroll.scrollToTop()
+}
     return <>
         <div className="homebackground">
             <div className="content-container">
@@ -12,13 +25,17 @@ export default function(){
                     .NET ENTWICKLUNG
                 </button>
             </div>
+            <div onClick={handleScrollToBottom} className=" absolute bottom-16 left-1/2 border-2 border-slate-300 rounded-full p-4 mb-4">
+                <FontAwesomeIcon icon={faArrowDown} className=' animate-bounce text-slate-300'/>
+            </div>
+
         </div>
         <Element name="services" className="services bg-gray-100 py-10">
-            <div className='h-10'>
-                <p>this is services</p>
-            </div>
+           <Services  data={initservice.data}/>
         </Element>
 
-
+        <div onClick={handleScrollToTop} className=" absolute bottom-14 right-9 border-2 border-slate-500 rounded-full p-4 mb-4">
+            <FontAwesomeIcon icon={faArrowUp} className=' animate-bounce text-slate-500'/>
+        </div>
     </>
 }
