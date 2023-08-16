@@ -59,10 +59,10 @@ const Header = () => {
         </div>
         <div className={`md:flex ${menuOpen ? 'block' : 'hidden'}`}>
           <ul className="flex items-center md:gap-4">
-            <li className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-1'><NavLink to="/" activeClassName="active" exact onClick={scrollToTop}>{t("Home")}</NavLink></li>
-            <li className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-1'><NavLink to="/jobs" activeClassName="active">{t("jobs")}</NavLink></li>
-            <li className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-1'><NavLink to="/about" activeClassName="active">{t("aboutUs")}</NavLink></li>
-            <li className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-1'><button role='button' onClick={handleDirection}>{t("services")}</button></li>
+            <li><NavLink className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2' to="/" activeClassName="active" exact onClick={scrollToTop}>{t("Home")}</NavLink></li>
+            <li ><NavLink className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2'  to="/jobs" activeClassName="active">{t("jobs")}</NavLink></li>
+            <li ><NavLink className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2'  to="/about" activeClassName="active">{t("aboutUs")}</NavLink></li>
+            <li ><button  className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2 max-md:mr-2' role='button' onClick={handleDirection}>{t("services")}</button></li>
             <li className=' hover:scale-110'>
               <LangBar firstLang={i18n.language} />
             </li>
