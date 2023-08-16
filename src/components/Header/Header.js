@@ -61,7 +61,6 @@ const Header = () => {
           <ul className="flex items-center md:gap-4">
             <li className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-1'><NavLink to="/" activeClassName="active" exact onClick={scrollToTop}>{t("Home")}</NavLink></li>
             <li className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-1'><NavLink to="/jobs" activeClassName="active">{t("jobs")}</NavLink></li>
-            <li className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-1'><NavLink to="/apply" activeClassName="active">{t("apply")}</NavLink></li>
             <li className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-1'><NavLink to="/about" activeClassName="active">{t("aboutUs")}</NavLink></li>
             <li className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-1'><button role='button' onClick={handleDirection}>{t("services")}</button></li>
             <li className=' hover:scale-110'>
