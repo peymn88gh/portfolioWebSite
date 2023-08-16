@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import data from 'data/jobs.json';
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Contact from "pages/Contact";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const JobDetail = () => {
   const {jobId} = useParams()
   const job = data.jobs.find((obj)=>obj.id===jobId)
-
+// console.log(window.history);
+  
   return (
     <article className="py-12 px-8">
+      <div className="mb-4">
+        <Link
+        // to={window.history.back}
+          onClick={()=>window.history.back()}
+          className="flex items-center text-gray-600 hover:text-gray-800 transition ease-in-out"
+        >
+          <FontAwesomeIcon icon={faArrowLeft} className="h-5 w-5 mr-2" />
+          Back
+        </Link>
+      </div>
       <h2 className="text-3xl font-bold mb-4">{job.role}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>

@@ -68,7 +68,10 @@
     "send": "Send",
     "contactSales": "Contact Sales",
     "IsTooShort": "is too short",
-
-    "aboutUs": "About Us"
+    "about": "About",
+    "home": "Home",
+    "jobs": "Jobs",
+    "apply": "Apply",
+    "services": "Services"
 
 }

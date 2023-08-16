@@ -1,10 +1,13 @@
+import LangBar from 'components/LangBar/LangBar';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
+import { animateScroll as scroll } from 'react-scroll';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
+  const { t, i18n} = useTranslation('common');
+  const navigate = useNavigate()
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -14,16 +17,18 @@ const Header = () => {
     setMenuOpen(false);
   };
 
-  const redirectToServices = () => {
-    window.location.href = "/#services"; 
-    scroll.scrollTo('services', { smooth: true });
-    setMenuOpen(false);
+  const handleDirection = () => {
+      if(window.location.pathname==='/') scroll.scrollTo(600)
+      else{
+        navigate('/#services')
+      }
+
   };
   return (
     <header>
       <nav className="flex items-center justify-between p-4 bg-gray-800 text-white">
         <div className="flex items-center">
-          {!menuOpen && <Link to="/" className="text-xl font-bold">LeoNet Informatik GmbH</Link>}
+          {!menuOpen && <Link to="/" className="text-xl md:font-bold">LeoNet Informatik GmbH</Link>}
         </div>
         <div className="md:hidden">
           <button onClick={toggleMenu}>
@@ -53,12 +58,14 @@ const Header = () => {
           </button>
         </div>
         <div className={`md:flex ${menuOpen ? 'block' : 'hidden'}`}>
-          <ul className="flex items-center space-x-4">
-            <li><NavLink to="/" activeClassName="active" exact onClick={scrollToTop}>Home</NavLink></li>
-            <li><NavLink to="/jobs" activeClassName="active">Jobs</NavLink></li>
-            <li><NavLink to="/apply" activeClassName="active">Apply</NavLink></li>
-            <li><NavLink to="/about" activeClassName="active">About Us</NavLink></li>
-            <li><ScrollLink to="services" smooth={true} offset={-70}>Services</ScrollLink></li>
+          <ul className="flex items-center md:gap-4">
+            <li><NavLink className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2' to="/" activeClassName="active" exact onClick={scrollToTop}>{t("Home")}</NavLink></li>
+            <li ><NavLink className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2'  to="/jobs" activeClassName="active">{t("jobs")}</NavLink></li>
+            <li ><NavLink className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2'  to="/about" activeClassName="active">{t("aboutUs")}</NavLink></li>
+            <li ><button  className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2 max-md:mr-2' role='button' onClick={handleDirection}>{t("services")}</button></li>
+            <li className=' hover:scale-110'>
+              <LangBar firstLang={i18n.language} />
+            </li>
           </ul>
         </div>
       </nav>
