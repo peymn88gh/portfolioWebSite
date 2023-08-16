@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { forwardRef } from 'react';
 import { Element, animateScroll } from 'react-scroll';
 import './Home.css';
@@ -6,6 +6,7 @@ import Services from 'components/Services/Services';
 import initservice from "data/services.json";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 
 export default function Home(){
 function handleScrollToBottom(){
@@ -14,6 +15,10 @@ function handleScrollToBottom(){
 function handleScrollToTop(){
     animateScroll.scrollToTop()
 }
+useEffect(()=>{
+    if(window.location.hash==='#services') {scroll.scrollTo(600)}
+    
+},[])
     return <>
         <div className="homebackground">
             <div className="content-container">
@@ -25,7 +30,7 @@ function handleScrollToTop(){
                     .NET ENTWICKLUNG
                 </button>
             </div>
-            <div onClick={handleScrollToBottom} className=" absolute bottom-16 left-1/2 border-2 border-slate-300 rounded-full p-4 mb-4">
+            <div onClick={handleScrollToBottom} className=" cursor-pointer absolute bottom-16 left-1/2 border-2 border-slate-300 rounded-full p-4 mb-4">
                 <FontAwesomeIcon icon={faArrowDown} className=' animate-bounce text-slate-300'/>
             </div>
 
@@ -34,7 +39,7 @@ function handleScrollToTop(){
            <Services  data={initservice.data}/>
         </Element>
 
-        <div onClick={handleScrollToTop} className=" absolute bottom-14 right-9 border-2 border-slate-500 rounded-full p-4 mb-4">
+        <div onClick={handleScrollToTop} className=" cursor-pointer absolute bottom-14 right-9 border-2 border-slate-500 rounded-full p-4 mb-4">
             <FontAwesomeIcon icon={faArrowUp} className=' animate-bounce text-slate-500'/>
         </div>
     </>

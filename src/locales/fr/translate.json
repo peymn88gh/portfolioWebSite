@@ -67,5 +67,10 @@
     "policy": "Policy",
     "send": "Send",
     "contactSales": "Contact Sales",
-    "IsTooShort": "is too short"
+    "IsTooShort": "is too short",
+    "about": "About fr",
+    "home": "Home fr",
+    "jobs": "Jobs fr",
+    "apply": "Apply fr",
+    "services": "Services fr"
 }
