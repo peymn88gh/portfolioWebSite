@@ -1,0 +1,72 @@
+{
+    "0": {
+        "id" : "0",
+        "img" : "/examplefreepic.jpg",
+        "role" : "fr Linux Engineer (Caas)",
+        "agileTeamRelated" : "fr Linux Engineer",
+        "skill" :  "fr Senior ICT System Engineer",
+        "description" : "fr Lösungsarchitekturen und -konzepte für eine hochsichere, hochverfügbare und automatisierte Private Cloud entwickeln Konzeption und Implementation einer automatisierten Serverplattform, basierend Kubernetes. Implementierung und Automatisierung der CaaS Umgebung mit Scripting und/oder Ansible ",
+        "mustHave" : "fr Erfahrung Kubernetes in Konzeption, der Implementierung, dem Unterhalt sowie Weiterentwicklung (Automatisierung) der Client-/Server-Infrastruktur Kenntnisse in der Automatisierung mittels Scripting Umfangreiches Fachwissen in den Technologien von Kubernetes Ausgeprägte soziale Fähigkeiten im Umgang mit Kunden sowie Umsetzungsorientiertheit Einwandfreier Leumund ",
+        "niceToHave" : "fr Kenntnisse der folgenden Technologien: Filebeat, Kibana, Grafana, Prometheus, OpenShift Kenntnisse im Erstellen von Ansible Playbooks Mehrjährige Erfahrung mit Orchestrierung Erfahrung im Erstellen von Detailstudien und -konzepten sowie UML Modellierung für komplexe, verteilte Systemlandschaften Kommunikative, überzeugende, engagierte und ausdauernde Persönlichkeit "
+    },
+    "1": {
+        "id" : "1",
+        "img" : "/examplefreepic.jpg",
+        "role" : "fr Linux Engineer (Caas)",
+        "agileTeamRelated" : "fr Linux Engineer",
+        "skill" :  "fr Senior ICT System Engineer",
+        "description" : "fr Lösungsarchitekturen und -konzepte für eine hochsichere, hochverfügbare und automatisierte Private Cloud entwickeln Konzeption und Implementation einer automatisierten Serverplattform, basierend Kubernetes. Implementierung und Automatisierung der CaaS Umgebung mit Scripting und/oder Ansible ",
+        "mustHave" : "fr Erfahrung Kubernetes in Konzeption, der Implementierung, dem Unterhalt sowie Weiterentwicklung (Automatisierung) der Client-/Server-Infrastruktur Kenntnisse in der Automatisierung mittels Scripting Umfangreiches Fachwissen in den Technologien von Kubernetes Ausgeprägte soziale Fähigkeiten im Umgang mit Kunden sowie Umsetzungsorientiertheit Einwandfreier Leumund ",
+        "niceToHave" : "fr Kenntnisse der folgenden Technologien: Filebeat, Kibana, Grafana, Prometheus, OpenShift Kenntnisse im Erstellen von Ansible Playbooks Mehrjährige Erfahrung mit Orchestrierung Erfahrung im Erstellen von Detailstudien und -konzepten sowie UML Modellierung für komplexe, verteilte Systemlandschaften Kommunikative, überzeugende, engagierte und ausdauernde Persönlichkeit "
+    },
+    "2": {
+        "id" : "2",
+        "img" : "/examplefreepic.jpg",
+        "role" : "fr Linux Engineer (Caas)",
+        "agileTeamRelated" : "fr Linux Engineer",
+        "skill" :  "fr Senior ICT System Engineer",
+        "description" : "fr Lösungsarchitekturen und -konzepte für eine hochsichere, hochverfügbare und automatisierte Private Cloud entwickeln Konzeption und Implementation einer automatisierten Serverplattform, basierend Kubernetes. Implementierung und Automatisierung der CaaS Umgebung mit Scripting und/oder Ansible ",
+        "mustHave" : "fr Erfahrung Kubernetes in Konzeption, der Implementierung, dem Unterhalt sowie Weiterentwicklung (Automatisierung) der Client-/Server-Infrastruktur Kenntnisse in der Automatisierung mittels Scripting Umfangreiches Fachwissen in den Technologien von Kubernetes Ausgeprägte soziale Fähigkeiten im Umgang mit Kunden sowie Umsetzungsorientiertheit Einwandfreier Leumund ",
+        "niceToHave" : "fr Kenntnisse der folgenden Technologien: Filebeat, Kibana, Grafana, Prometheus, OpenShift Kenntnisse im Erstellen von Ansible Playbooks Mehrjährige Erfahrung mit Orchestrierung Erfahrung im Erstellen von Detailstudien und -konzepten sowie UML Modellierung für komplexe, verteilte Systemlandschaften Kommunikative, überzeugende, engagierte und ausdauernde Persönlichkeit "
+    },
+    "3": {
+        "id" : "3",
+        "img" : "/examplefreepic.jpg",
+        "role" : "fr Linux Engineer (Caas)",
+        "agileTeamRelated" : "fr Linux Engineer",
+        "skill" :  "fr Senior ICT System Engineer",
+        "description" : "fr Lösungsarchitekturen und -konzepte für eine hochsichere, hochverfügbare und automatisierte Private Cloud entwickeln Konzeption und Implementation einer automatisierten Serverplattform, basierend Kubernetes. Implementierung und Automatisierung der CaaS Umgebung mit Scripting und/oder Ansible ",
+        "mustHave" : "fr Erfahrung Kubernetes in Konzeption, der Implementierung, dem Unterhalt sowie Weiterentwicklung (Automatisierung) der Client-/Server-Infrastruktur Kenntnisse in der Automatisierung mittels Scripting Umfangreiches Fachwissen in den Technologien von Kubernetes Ausgeprägte soziale Fähigkeiten im Umgang mit Kunden sowie Umsetzungsorientiertheit Einwandfreier Leumund ",
+        "niceToHave" : "fr Kenntnisse der folgenden Technologien: Filebeat, Kibana, Grafana, Prometheus, OpenShift Kenntnisse im Erstellen von Ansible Playbooks Mehrjährige Erfahrung mit Orchestrierung Erfahrung im Erstellen von Detailstudien und -konzepten sowie UML Modellierung für komplexe, verteilte Systemlandschaften Kommunikative, überzeugende, engagierte und ausdauernde Persönlichkeit "
+    },
+    "4": {
+        "id" : "4",
+        "img" : "/examplefreepic.jpg",
+        "role" : "fr Linux Engineer (Caas)",
+        "agileTeamRelated" : "fr Linux Engineer",
+        "skill" :  "fr Senior ICT System Engineer",
+        "description" : "fr Lösungsarchitekturen und -konzepte für eine hochsichere, hochverfügbare und automatisierte Private Cloud entwickeln Konzeption und Implementation einer automatisierten Serverplattform, basierend Kubernetes. Implementierung und Automatisierung der CaaS Umgebung mit Scripting und/oder Ansible ",
+        "mustHave" : "fr Erfahrung Kubernetes in Konzeption, der Implementierung, dem Unterhalt sowie Weiterentwicklung (Automatisierung) der Client-/Server-Infrastruktur Kenntnisse in der Automatisierung mittels Scripting Umfangreiches Fachwissen in den Technologien von Kubernetes Ausgeprägte soziale Fähigkeiten im Umgang mit Kunden sowie Umsetzungsorientiertheit Einwandfreier Leumund ",
+        "niceToHave" : "fr Kenntnisse der folgenden Technologien: Filebeat, Kibana, Grafana, Prometheus, OpenShift Kenntnisse im Erstellen von Ansible Playbooks Mehrjährige Erfahrung mit Orchestrierung Erfahrung im Erstellen von Detailstudien und -konzepten sowie UML Modellierung für komplexe, verteilte Systemlandschaften Kommunikative, überzeugende, engagierte und ausdauernde Persönlichkeit "
+    },
+    "5": {
+        "id" : "5",
+        "img" : "/examplefreepic.jpg",
+        "role" : "fr Linux Engineer (Caas)",
+        "agileTeamRelated" : "fr Linux Engineer",
+        "skill" :  "fr Senior ICT System Engineer",
+        "description" : "fr Lösungsarchitekturen und -konzepte für eine hochsichere, hochverfügbare und automatisierte Private Cloud entwickeln Konzeption und Implementation einer automatisierten Serverplattform, basierend Kubernetes. Implementierung und Automatisierung der CaaS Umgebung mit Scripting und/oder Ansible ",
+        "mustHave" : "fr Erfahrung Kubernetes in Konzeption, der Implementierung, dem Unterhalt sowie Weiterentwicklung (Automatisierung) der Client-/Server-Infrastruktur Kenntnisse in der Automatisierung mittels Scripting Umfangreiches Fachwissen in den Technologien von Kubernetes Ausgeprägte soziale Fähigkeiten im Umgang mit Kunden sowie Umsetzungsorientiertheit Einwandfreier Leumund ",
+        "niceToHave" : "fr Kenntnisse der folgenden Technologien: Filebeat, Kibana, Grafana, Prometheus, OpenShift Kenntnisse im Erstellen von Ansible Playbooks Mehrjährige Erfahrung mit Orchestrierung Erfahrung im Erstellen von Detailstudien und -konzepten sowie UML Modellierung für komplexe, verteilte Systemlandschaften Kommunikative, überzeugende, engagierte und ausdauernde Persönlichkeit "
+    },
+    "6": {
+        "id" : "6",
+        "img" : "/examplefreepic.jpg",
+        "role" : "fr Linux Engineer (Caas)",
+        "agileTeamRelated" : "fr Linux Engineer",
+        "skill" :  "fr Senior ICT System Engineer",
+        "description" : "fr Lösungsarchitekturen und -konzepte für eine hochsichere, hochverfügbare und automatisierte Private Cloud entwickeln Konzeption und Implementation einer automatisierten Serverplattform, basierend Kubernetes. Implementierung und Automatisierung der CaaS Umgebung mit Scripting und/oder Ansible ",
+        "mustHave" : "fr Erfahrung Kubernetes in Konzeption, der Implementierung, dem Unterhalt sowie Weiterentwicklung (Automatisierung) der Client-/Server-Infrastruktur Kenntnisse in der Automatisierung mittels Scripting Umfangreiches Fachwissen in den Technologien von Kubernetes Ausgeprägte soziale Fähigkeiten im Umgang mit Kunden sowie Umsetzungsorientiertheit Einwandfreier Leumund ",
+        "niceToHave" : "fr Kenntnisse der folgenden Technologien: Filebeat, Kibana, Grafana, Prometheus, OpenShift Kenntnisse im Erstellen von Ansible Playbooks Mehrjährige Erfahrung mit Orchestrierung Erfahrung im Erstellen von Detailstudien und -konzepten sowie UML Modellierung für komplexe, verteilte Systemlandschaften Kommunikative, überzeugende, engagierte und ausdauernde Persönlichkeit "
+    }
+}
