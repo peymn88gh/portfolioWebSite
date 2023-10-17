@@ -58,7 +58,7 @@ const Header = () => {
           </button>
         </div>
         <div className={`md:flex ${menuOpen ? 'block' : 'hidden'}`}>
-          <ul className="flex items-center md:gap-4">
+          <ul className="flex items-center md:gap-10">
             <li><NavLink className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2' to="/" activeClassName="active" exact onClick={scrollToTop}>{t("Home")}</NavLink></li>
             <li ><NavLink className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2'  to="/jobs" activeClassName="active">{t("jobs")}</NavLink></li>
             <li ><NavLink className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2'  to="/about" activeClassName="active">{t("aboutUs")}</NavLink></li>
