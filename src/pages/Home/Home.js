@@ -60,10 +60,8 @@ const variants = {
                     Your browser does not support the video tag.
                 </video>
             </div>
-
-                <Services  data={initservice.data}/>
-
-
+            {/* <LatestJobs /> */}
+            <Services  data={initservice.data}/>
         </>
     );
 }
