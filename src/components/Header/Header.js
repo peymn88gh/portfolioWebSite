@@ -1,13 +1,22 @@
 import LangBar from 'components/LangBar/LangBar';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
+import { motion } from "framer-motion";
+const headerVariants = {
+  initial: { opacity: 0, y:-5}, // Initial state when the header is not visible
+  animate: { opacity: 1, y:0 }, // Animation when the header becomes visible
+};
 
-const Header = () => {
+const Header = ({menuStyles}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { t, i18n} = useTranslation('common');
   const navigate = useNavigate()
+  const AppliedStylesToHeader = menuStyles === 'change' ? 'fixed z-50 w-full font-bebas bg-white' : 'absolute z-50 w-full font-bebas bg-transparent'
+  const AppliedStylesToNav = menuStyles === 'change' ? "flex justify-evenly w-2/3 2xl:w-1/3 font-mono text-xl uppercase" : "flex justify-evenly w-2/3 2xl:w-1/3 font-mono text-white text-xl uppercase"
+  const AppliedStylesToLi = menuStyles === 'change' ? 'border-r-2 border-primary' : 'border-r-2 border-primary hover:text-primary'
+  
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -24,13 +33,21 @@ const Header = () => {
       }
 
   };
+  
   return (
-    <header>
-      <nav className="flex items-center justify-between p-4 bg-gray-800 text-white">
-        <div className="flex items-center">
-          {!menuOpen && <Link to="/" className="text-xl md:font-bold">LeoNet Informatik GmbH</Link>}
+    <motion.header
+        key={menuStyles} // Ensure a unique key when the menuStyles change
+        className={AppliedStylesToHeader}
+        variants={headerVariants}
+        initial="initial"
+        animate="animate"
+        transition={{ duration: 0.75 }}
+      >
+      <nav className="px-4 pt-4 flex flex-row items-start justify-between">
+        <div className="w-1/3">
+          {!menuOpen && <Link to="/" className=" text-primary text-3xl md:text-4xl font-bold ml-10">NOIR</Link>}
         </div>
-        <div className="md:hidden">
+        {/* <div className="hidden">
           <button onClick={toggleMenu}>
             <svg
               className="h-6 w-6"
@@ -56,20 +73,20 @@ const Header = () => {
               )}
             </svg>
           </button>
-        </div>
-        <div className={`md:flex ${menuOpen ? 'block' : 'hidden'}`}>
-          <ul className="flex items-center md:gap-10">
-            <li><NavLink className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2' to="/" activeClassName="active" exact onClick={scrollToTop}>{t("Home")}</NavLink></li>
-            <li ><NavLink className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2'  to="/jobs" activeClassName="active">{t("jobs")}</NavLink></li>
-            <li ><NavLink className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2'  to="/about" activeClassName="active">{t("aboutUs")}</NavLink></li>
-            <li ><button  className=' hover:bg-slate-500 hover:rounded-sm bg-opacity-20 px-2 py-2 max-md:mr-2' role='button' onClick={handleDirection}>{t("services")}</button></li>
-            <li className=' hover:scale-110'>
-              <LangBar firstLang={i18n.language} />
-            </li>
-          </ul>
-        </div>
+        </div> */}
+        {/* <div className= 'min-w-[15%] md:hidden md:invisible'></div> */}
+
+        <ul className={AppliedStylesToNav}>
+          <li className={AppliedStylesToLi}><NavLink  className='px-3' to="/" activeClassName="active" exact onClick={scrollToTop}>{t("Home")}</NavLink></li>
+          <li className={AppliedStylesToLi} ><NavLink className='px-3'  to="/jobs" activeClassName="active">{t("jobs")}</NavLink></li>
+          <li className={AppliedStylesToLi} ><NavLink className='px-3'  to="/about" activeClassName="active">{t("aboutUs")}</NavLink></li>
+          <li className={AppliedStylesToLi} ><button  className='px-3  uppercase' role='button' onClick={handleDirection}>{t("services")}</button></li>
+          <li className=' hover:scale-110'>
+            <LangBar firstLang={i18n.language} />
+          </li>
+        </ul>
       </nav>
-    </header>
+    </motion.header>
   );
 };
 
