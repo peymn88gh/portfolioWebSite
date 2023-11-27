@@ -1,14 +1,19 @@
-import React, { useEffect, useRef } from 'react';
-
-import { Element, animateScroll } from 'react-scroll';
+import React, { useEffect } from 'react';
+import { animateScroll } from 'react-scroll';
 import './Home.css';
 import Services from 'components/Services/Services';
 import initservice from "data/services.json";
-
-
 import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import { AnimatePresence, motion, useIsPresent } from "framer-motion";
+import LatestJobs from 'components/latestJobs/LatestJobs';
+import GraphicIntroduction from 'components/introduction/GraphicIntroduction';
+import HirePeople from 'components/hire/HirePeople';
+import LatestInsights from 'components/weblog/LatestInsights';
 
+const variants = {
+    initial: { opacity: 0, x: -50 }, // Initial state (hidden to the left)
+    animate: { opacity: 1, x: 0 }, // Animation when appearing (moves in from the left)
+  };
 export default function Home(){
     const isPresent = useIsPresent()
 
@@ -24,14 +29,11 @@ useEffect(()=>{
     if(window.location.hash==='#services') {scroll.scrollTo(600)}
     
 },[])
-const variants = {
-    initial: { opacity: 0, x: -50 }, // Initial state (hidden to the left)
-    animate: { opacity: 1, x: 0 }, // Animation when appearing (moves in from the left)
-  };
+
     return (
         <>
             <div className=" h-screen w-screen relative overflow-hidden">
-                <div className=" absolute bg-secondary bg-opacity-80 w-screen h-screen flex-col">
+                <div className=" absolute z-10 bg-secondary bg-opacity-80 w-screen h-screen flex-col">
                     <AnimatePresence>
                         {isPresent && (
                         <motion.hgroup 
@@ -53,15 +55,18 @@ const variants = {
                 autoPlay
                 loop
                 muted
-                className='w-full'
+                className='w-full max-md:hidden md:scale-125'
                 >
                     <source src="pexels_videos_2325093.mp4" type="video/mp4" />
                     {/* Add other source tags for different video formats if necessary */}
                     Your browser does not support the video tag.
                 </video>
             </div>
-            {/* <LatestJobs /> */}
+            <LatestJobs />
             <Services  data={initservice.data}/>
+            <GraphicIntroduction />
+            <HirePeople />
+            <LatestInsights />
         </>
     );
 }

@@ -2,13 +2,13 @@ import React from "react";
 
 const Services = ({ data }) => {
   return (
-    <article className="text-center py-12 mx-8">
-      <h2 className="text-3xl font-bold mb-8">Our Services</h2>
+    <article className="bg-accent py-12">
+      <h2  className="mb-8 ml-14 font-bebas text-4xl text-black">Our Services</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {data.map((service) => (
           <section
             key={service.title}
-            className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out"
+            className="bg-white text-center p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out"
           >
             <img
               src={service.img}
