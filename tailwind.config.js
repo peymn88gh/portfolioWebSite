@@ -9,15 +9,16 @@ module.exports = {
     fontSize: {
       sm: '0.8rem',
       base: '1rem',
-      xl: '1.25rem',
+      xl: '1.1rem',
       '2xl': '1.563rem',
-      '3xl': '3.953rem',
+      '3xl': '2.053rem',
       '4xl': '4.441rem',
       '5xl': '7.441rem',
+      '6xl': '15.441rem',
     },
     extend: {
       colors: {
-        primary: '#BE123C', // Change this color to your primary color
+        primary: '#E11D48', // Change this color to your primary color
         secondary: '#172554', // Change this color to your secondary color
         accent: '#FFFFFF', // Change this color to your accent color
       },
