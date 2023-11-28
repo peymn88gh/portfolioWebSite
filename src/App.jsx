@@ -9,6 +9,10 @@ import JobDetail from "pages/Jobs/JobDetail";
 import AboutUs from "pages/AboutUs";
 import Contact from "pages/Contact"
 import data from 'data/jobs.json';
+import Services from "components/Services/Services";
+import initservice from "data/services.json";
+import BookingService from "components/booking/bookingService";
+
 function App() {
   return (
     <div className="app">
@@ -17,6 +21,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/jobs" element={<Jobs data={data.jobs}/>} />
           <Route path="/jobs/:jobId" element={<JobDetail />} /> {/* Add a route for job detail */}
+          <Route path="/services" element={<Services data={initservice.data}/>} />
+          <Route path="/services/:serviceId" element={<BookingService />} /> Add a route for job detail
           <Route path="/about" element={<AboutUs />} />
           <Route path="/apply" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

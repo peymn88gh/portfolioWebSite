@@ -72,6 +72,28 @@
     "home": "Home",
     "jobs": "Jobs",
     "apply": "Apply",
-    "services": "Services"
+    "services": "Services",
+    "sections": {
+        "sectionOne": "Our Latest Job Openings",
+        "sectionTwo": {
+          "h1": "we are",
+          "h21": "15 years",
+          "h22": "in business",
+          "h31": "90%",
+          "h32": "excellence rating",
+          "h41": "2 million",
+          "h42": "candidate database",
+          "h51": "1000",
+          "h52": "clients",
+          "b1": "learn more about us"
+        },
+        "sectionFooter": {
+          "footerText": "All Rights Reserved"
+        },
+        "sectionServices": {
+          "title": "Our Services"
+        }
+      }
+      
 
 }

@@ -1,13 +1,17 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 const Services = ({ data }) => {
+  const {t} = useTranslation('common')
+  const navigate = useNavigate()
   return (
-    <article className="bg-accent py-12">
-      <h2  className="mb-8 ml-14 font-bebas text-4xl text-black">Our Services</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <article className="bg-accent py-36">
+      <h2  className="mb-8 ml-14 font-bebas text-4xl text-black">{t('sections.sectionServices.title')}</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8  px-8">
         {data.map((service) => (
           <section
-            key={service.title}
+            key={service.id}
             className="bg-white text-center p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out"
           >
             <img
@@ -17,7 +21,7 @@ const Services = ({ data }) => {
             />
             <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
             <p className="text-gray-600">{service.subtitle}</p>
-            <button className="mt-4 bg-red-300 hover:bg-red-400 text-white py-2 px-4 rounded-full focus:outline-none focus:ring focus:ring-blue-300">
+            <button onClick={()=>navigate(`/services/${service.id}`)} className="mt-4 bg-red-300 hover:bg-red-400 text-white py-2 px-4 rounded-full focus:outline-none focus:ring focus:ring-blue-300">
               Learn More
             </button>
           </section>

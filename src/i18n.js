@@ -7,7 +7,7 @@ i18next
     .use(initReactI18next) // passes i18n down to react-i18next
     .init({
         interpolation: { escapeValue: false },  // React already does escaping
-        lng: 'en',                              // language to use
+        lng: 'de',                              // language to use
         resources: {
             en: {
                 common: common_en,               // 'common' is our custom namespace

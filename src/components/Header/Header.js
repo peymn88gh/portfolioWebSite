@@ -13,10 +13,39 @@ const Header = ({menuStyles}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { t, i18n} = useTranslation('common');
   const navigate = useNavigate()
-  const AppliedStylesToHeader = menuStyles === 'change' ? 'fixed z-50 w-full font-bebas bg-white' : 'absolute z-50 w-full font-bebas bg-transparent'
-  const AppliedStylesToNav = menuStyles === 'change' ? "flex justify-evenly w-2/3 2xl:w-1/3 font-mono text-xl uppercase" : "flex justify-evenly w-2/3 2xl:w-1/3 font-mono text-white text-xl uppercase"
+  const AppliedStylesToHeader = giveStylesToMenu('AppliedStylesToHeader',menuStyles)
+  const AppliedStylesToNav = giveStylesToMenu('AppliedStylesToNav',menuStyles)
   const AppliedStylesToLi = menuStyles === 'change' ? 'border-r-2 border-primary' : 'border-r-2 border-primary hover:text-primary'
-  
+  function giveStylesToMenu(where, state){
+    switch (where) {
+      case 'AppliedStylesToHeader':{
+        if (state === 'change') {
+          return 'fixed z-50 w-full font-bebas bg-white';
+        }
+        else {
+          return 'absolute z-50 w-full font-bebas bg-transparent';
+        }
+        
+      }
+      case 'AppliedStylesToNav':{
+        if (state === 'change') {
+          return "flex justify-evenly w-2/3 2xl:w-1/3 font-mono text-xl uppercase";
+        }
+        if (state === 'default') {
+          return "flex justify-evenly w-2/3 2xl:w-1/3 font-mono text-white text-xl uppercase";
+        }
+        if (state === 'serviceSectionDefault') {
+          return "flex justify-evenly w-2/3 2xl:w-1/3 font-mono text-secondary text-xl uppercase";
+        }
+        
+      }
+        
+
+    
+      default: break;
+
+    }
+  }
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -27,10 +56,10 @@ const Header = ({menuStyles}) => {
   };
 
   const handleDirection = () => {
-      if(window.location.pathname==='/') scroll.scrollTo(600)
-      else{
-        navigate('/#services')
-      }
+      // if(window.location.pathname==='/') scroll.scrollTo(600)
+      // else{
+        navigate('/services')
+      // }
 
   };
   
@@ -45,7 +74,7 @@ const Header = ({menuStyles}) => {
       >
       <nav className="px-4 pt-4 flex flex-row items-start justify-between">
         <div className="w-1/3">
-          {!menuOpen && <Link to="/" className=" text-primary text-3xl md:text-4xl font-bold ml-10">NOIR</Link>}
+          {!menuOpen && <Link to="/" className=" text-primary text-3xl md:text-4xl font-bold ml-10">{process.env.REACT_APP_NAME}</Link>}
         </div>
         {/* <div className="hidden">
           <button onClick={toggleMenu}>

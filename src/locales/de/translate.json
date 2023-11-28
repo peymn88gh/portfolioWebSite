@@ -73,5 +73,27 @@
     "home": "Home de",
     "jobs": "Jobs de",
     "apply": "Apply de",
-    "services": "Services de"
+    "services": "Services de",
+    "sections" : {
+        "sectionOne" : "Unsere neusten Jobs",
+        "sectionTwo" : {
+            "h1" : "wir sind",
+            "h21" : "15 jahre",
+            "h22" : "im Geschäft",
+            "h31" : "90%",
+            "h32" : "Exzellenzbewertung",
+            "h41" : "2 Millionen",
+            "h42" : "Kandidatendatenbank",
+            "h51" : "1000",
+            "h52" : "Kunden",
+            "b1" : "mehr über uns"
+
+        },
+        "sectionFooter" : {
+            "footerText" : "Alle Rechte vorbehalten"
+        },
+        "sectionServices" : {
+            "title" : "unsere Dienstleistungen"
+        }
+    }
 }

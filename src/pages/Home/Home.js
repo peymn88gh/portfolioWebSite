@@ -1,34 +1,32 @@
-import React, { useEffect } from 'react';
-import { animateScroll } from 'react-scroll';
+import React from 'react';
 import './Home.css';
-import Services from 'components/Services/Services';
-import initservice from "data/services.json";
-import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import { AnimatePresence, motion, useIsPresent } from "framer-motion";
 import LatestJobs from 'components/latestJobs/LatestJobs';
 import GraphicIntroduction from 'components/introduction/GraphicIntroduction';
 import HirePeople from 'components/hire/HirePeople';
 import LatestInsights from 'components/weblog/LatestInsights';
+import { useTranslation } from 'react-i18next';
 
 const variants = {
     initial: { opacity: 0, x: -50 }, // Initial state (hidden to the left)
     animate: { opacity: 1, x: 0 }, // Animation when appearing (moves in from the left)
   };
 export default function Home(){
+    const { t, i18n} = useTranslation('common');
     const isPresent = useIsPresent()
 
     
-function handleScrollToBottom(){
-    animateScroll.scrollTo(1000);
-}
-function handleScrollToTop(){
-    animateScroll.scrollToTop()
-}
+// function handleScrollToBottom(){
+//     animateScroll.scrollTo(1000);
+// }
+// function handleScrollToTop(){
+//     animateScroll.scrollToTop()
+// }
 
-useEffect(()=>{
-    if(window.location.hash==='#services') {scroll.scrollTo(600)}
+// useEffect(()=>{
+//     if(window.location.hash==='#services') {scroll.scrollTo(600)}
     
-},[])
+// },[])
 
     return (
         <>
@@ -44,8 +42,8 @@ useEffect(()=>{
                             transition={{ duration: 0.75 }}
                         >
                             <h1>
-                                Microsoft <br /> talent <br />{' '}
-                                <p className="text-primary">solutions</p>
+                                {t('digital')} <br /> {t('talent')} <br />{' '}
+                                <p className="text-primary">{t('solutions')}</p>
                             </h1>
                         </motion.hgroup>
                         )}
@@ -62,11 +60,11 @@ useEffect(()=>{
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <LatestJobs />
-            <Services  data={initservice.data}/>
-            <GraphicIntroduction />
-            <HirePeople />
-            <LatestInsights />
+            <LatestJobs t={t}/>
+            {/* <Services  data={initservice.data}/> */}
+            <GraphicIntroduction t={t}/>
+            {/* <HirePeople /> */}
+            {/* <LatestInsights /> */}
         </>
     );
 }

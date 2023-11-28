@@ -73,5 +73,27 @@
     "home": "Home it",
     "jobs": "Jobs it",
     "apply": "Apply it",
-    "services": "Services it"
+    "services": "Services it",
+    "sections": {
+        "sectionOne": "Le nostre ultime offerte di lavoro",
+        "sectionTwo": {
+          "h1": "siamo",
+          "h21": "15 anni",
+          "h22": "nel settore",
+          "h31": "90%",
+          "h32": "valutazione di eccellenza",
+          "h41": "2 milioni",
+          "h42": "database dei candidati",
+          "h51": "1000",
+          "h52": "clienti",
+          "b1": "scopri di più su di noi"
+        },
+        "sectionFooter": {
+          "footerText": "Tutti i diritti riservati"
+        },
+        "sectionServices": {
+          "title": "i nostri servizi"
+        }
+      }
+      
 }

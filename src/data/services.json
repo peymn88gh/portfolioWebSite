@@ -1,6 +1,7 @@
 {
     "data" : [
         {
+            "id": 0,
             "img": "/examplefreepic.jpg",
             "imageAlt" :"this is sample photo",
             "title" : "title of service1",
@@ -8,6 +9,7 @@
             "price" : "201 $"
         },
         {
+            "id": 1,
             "img": "/examplefreepic.jpg",
             "imageAlt" :"this is sample photo",
             "title" : "title of service2",
@@ -15,6 +17,7 @@
             "price" : "201 $"
         },
         {
+            "id": 2,
             "img": "/examplefreepic.jpg",
             "imageAlt" :"this is sample photo",
             "title" : "title of service3",
@@ -22,6 +25,7 @@
             "price" : "201 $"
         },
         {
+            "id": 3,
             "img": "/examplefreepic.jpg",
             "imageAlt" :"this is sample photo",
             "title" : "title of service4",
@@ -29,6 +33,7 @@
             "price" : "201 $"
         },
         {
+            "id": 4,
             "img": "/examplefreepic.jpg",
             "imageAlt" :"this is sample photo",
             "title" : "title of service5",

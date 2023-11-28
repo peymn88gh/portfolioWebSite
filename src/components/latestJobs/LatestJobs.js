@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import data from 'data/jobs.json';
 
-const LatestJobs = () => {
+const LatestJobs = ({t}) => {
   
   return (
     <article className="py-12 bg-accent">
-      <h2 className="mb-8 ml-14 font-bebas text-4xl text-black">Our Latest Jobes</h2>
+      <h2 className="mb-8 ml-14 font-bebas text-4xl text-black">{t('sections.sectionOne')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-14">
         {data.jobs.slice(0,3).map((job) => (
             <Link

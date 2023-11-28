@@ -72,5 +72,27 @@
     "home": "Home fr",
     "jobs": "Jobs fr",
     "apply": "Apply fr",
-    "services": "Services fr"
+    "services": "Services fr",
+    "sections": {
+        "sectionOne": "Nos Dernières Offres d'Emploi",
+        "sectionTwo": {
+          "h1": "nous sommes",
+          "h21": "15 ans",
+          "h22": "dans le secteur",
+          "h31": "90%",
+          "h32": "évaluation d'excellence",
+          "h41": "2 millions",
+          "h42": "base de données des candidats",
+          "h51": "1000",
+          "h52": "clients",
+          "b1": "en savoir plus sur nous"
+        },
+        "sectionFooter": {
+          "footerText": "Tous droits réservés"
+        },
+        "sectionServices": {
+          "title": "Nos Services"
+        }
+      }
+      
 }
