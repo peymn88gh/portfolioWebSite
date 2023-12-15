@@ -2,32 +2,23 @@ import React, { useState } from "react";
 import Footer from "./Footer";
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header/Header";
-import { motion } from "framer-motion";
+import { motion, useCycle } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import SideBar from "./Sidebar";
+import { useInView } from 'react-intersection-observer';
 
 function Layout({ children }) {
-  const [menuStyles, setMenuStyles] = useState(window.location.pathname.includes('services') ? 'serviceSectionDefault':'default');
-  const location = useLocation();
+  const [open, cycleOpen] = useCycle(false, true);
   const { t } = useTranslation('common')
-  function handleChangeStyle(){
-// console.log(location.pathname,'sgrkjs');
-  // if(location.pathname.includes('services')){
-  //   setMenuStyles('serviceSectionChange')
-  // }
-    setMenuStyles('change')
-  }
-  function handleReverseStyles(){
-  if(location.pathname.includes('services')){
-    setMenuStyles('serviceSectionDefault')
-  }
-  else setMenuStyles('default') 
-}
+  const [ref, inView] = useInView({});
   return (
       <>
         <div className="flex min-h-screen relative">
-          <div className="flex flex-1 flex-col bg-secondary">
-            <Header menuStyles={menuStyles} />
-            <motion.div onViewportLeave={handleChangeStyle} whileInView={handleReverseStyles}></motion.div>
+          <div className="flex flex-1 flex-col bg-bg1">
+            
+            <Header open={open} cycleOpen={cycleOpen} menuStyles={inView ? 'default' : 'change'} />
+            <SideBar open={open}/>
+            <motion.div ref={ref} ></motion.div>
             <Outlet />
             <Footer t={t}></Footer>
           </div>

@@ -3,39 +3,47 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
-import { motion } from "framer-motion";
+import { motion, useCycle } from "framer-motion";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faClose, faHamburger, faP } from '@fortawesome/free-solid-svg-icons';
 const headerVariants = {
-  initial: { opacity: 0, y:-5}, // Initial state when the header is not visible
-  animate: { opacity: 1, y:0 }, // Animation when the header becomes visible
+  initial: { opacity: 0}, // Initial state when the header is not visible
+  animate: { opacity: 1}, // Animation when the header becomes visible
+  exit: { opacity: 1},
+};
+const logoVariants = {
+  initial: { opacity: 0},
+  animate: { opacity: 1},
+  exit: { opacity: 1},
 };
 
-const Header = ({menuStyles}) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+const Header = ({menuStyles, open, cycleOpen}) => {
+  
   const { t, i18n} = useTranslation('common');
   const navigate = useNavigate()
   const AppliedStylesToHeader = giveStylesToMenu('AppliedStylesToHeader',menuStyles)
   const AppliedStylesToNav = giveStylesToMenu('AppliedStylesToNav',menuStyles)
-  const AppliedStylesToLi = menuStyles === 'change' ? 'border-r-2 border-primary' : 'border-r-2 border-primary hover:text-primary'
+
   function giveStylesToMenu(where, state){
     switch (where) {
       case 'AppliedStylesToHeader':{
         if (state === 'change') {
-          return 'fixed z-50 w-full font-bebas bg-white';
+          return 'fixed z-50 pt-2 max-h-max w-full font-sans bg-secondary';
         }
         else {
-          return 'absolute z-50 w-full font-bebas bg-transparent';
+          return 'absolute mt-5 z-50 w-full font-sans bg-transparent';
         }
         
       }
       case 'AppliedStylesToNav':{
         if (state === 'change') {
-          return "flex justify-evenly w-2/3 2xl:w-1/3 font-mono text-xl uppercase";
+          return "max-md:hidden flex justify-evenly w-1/3 font-sans  text-white text-lg";
         }
         if (state === 'default') {
-          return "flex justify-evenly w-2/3 2xl:w-1/3 font-mono text-white text-xl uppercase";
+          return "max-md:hidden flex justify-evenly w-1/3 font-sans text-white text-lg";
         }
         if (state === 'serviceSectionDefault') {
-          return "flex justify-evenly w-2/3 2xl:w-1/3 font-mono text-secondary text-xl uppercase";
+          return "max-md:hidden flex justify-evenly w-2/3 font-sans text-secondary text-xl";
         }
         
       }
@@ -46,74 +54,36 @@ const Header = ({menuStyles}) => {
 
     }
   }
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  
 
   const scrollToTop = () => {
     scroll.scrollToTop();
-    setMenuOpen(false);
+    // setMenuOpen(false);
   };
 
-  const handleDirection = () => {
-      // if(window.location.pathname==='/') scroll.scrollTo(600)
-      // else{
-        navigate('/services')
-      // }
-
-  };
+ 
   
   return (
     <motion.header
-        key={menuStyles} // Ensure a unique key when the menuStyles change
+        // key={menuStyles} // Ensure a unique key when the menuStyles change
         className={AppliedStylesToHeader}
-        variants={headerVariants}
-        initial="initial"
-        animate="animate"
-        transition={{ duration: 0.75 }}
+        
       >
-      <nav className="px-4 pt-4 flex flex-row items-start justify-between">
-        <div className="w-1/3">
-          {!menuOpen && <Link to="/" className=" text-primary text-3xl md:text-4xl font-bold ml-10">{process.env.REACT_APP_NAME}</Link>}
-        </div>
-        {/* <div className="hidden">
-          <button onClick={toggleMenu}>
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {menuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
-        </div> */}
-        {/* <div className= 'min-w-[15%] md:hidden md:invisible'></div> */}
+      <nav className=" px-10 mt-4 flex flex-row justify-between items-start md:items-start md:justify-between text-center">
+        
+        <motion.img variants={logoVariants} initial="initial" animate="animate" transition={{ duration: 2 }} className=' mb-3 h-10 w-44 scale-75' src='/PLogo.png'/>        
 
-        <ul className={AppliedStylesToNav}>
-          <li className={AppliedStylesToLi}><NavLink  className='px-3' to="/" activeClassName="active" exact onClick={scrollToTop}>{t("Home")}</NavLink></li>
-          <li className={AppliedStylesToLi} ><NavLink className='px-3'  to="/jobs" activeClassName="active">{t("jobs")}</NavLink></li>
-          <li className={AppliedStylesToLi} ><NavLink className='px-3'  to="/about" activeClassName="active">{t("aboutUs")}</NavLink></li>
-          <li className={AppliedStylesToLi} ><button  className='px-3  uppercase' role='button' onClick={handleDirection}>{t("services")}</button></li>
+        <motion.ul variants={headerVariants} initial="initial" animate="animate" transition={{ duration: 2 }} className={AppliedStylesToNav}>
+          <li className=' hover:text-accent duration-150'><NavLink  className='px-2' to="/" activeClassName="active" exact onClick={scrollToTop}>{t("Home")}</NavLink></li>
+          <li className=' hover:text-accent duration-150' ><NavLink className='px-2'  to="/jobs" activeClassName="active">{t("contact")}</NavLink></li>
+          <li className=' hover:text-accent duration-150' ><NavLink className='px-2'  to="/about" activeClassName="active">{t("about")}</NavLink></li>
+          <li className=' hover:text-accent duration-150' ><NavLink className='px-2'  to="/services" activeClassName="active">{t("services")}</NavLink></li>
           <li className=' hover:scale-110'>
             <LangBar firstLang={i18n.language} />
           </li>
-        </ul>
+        </motion.ul>
+      {!open && <button onClick={cycleOpen} className='md:hidden text-white start-0 mt-2 scale-125'><circle className={` py-2 px-3 ${menuStyles==='default' ? 'hover:bg-black focus:bg-black' : 'hover:bg-accent focus:bg-accent'} rounded-full  duration-150 transition-colors`}><FontAwesomeIcon icon={faBars}/></circle></button>}
+      {open && <button onClick={cycleOpen} className='md:hidden text-white start-0 mt-2 scale-125'><circle className={` py-2 px-3 ${menuStyles==='default' ? 'hover:bg-black focus:bg-black' : 'hover:bg-accent focus:bg-accent'} rounded-full  duration-150 transition-colors`}><FontAwesomeIcon icon={faClose}/></circle></button>}
       </nav>
     </motion.header>
   );

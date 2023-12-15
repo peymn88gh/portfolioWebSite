@@ -7,24 +7,32 @@ module.exports = {
   ],
   theme: {
     fontSize: {
-      sm: '0.8rem',
-      base: '1rem',
-      xl: '1.1rem',
-      '2xl': '1.563rem',
-      '3xl': '2.053rem',
-      '4xl': '4.441rem',
-      '5xl': '7.441rem',
-      '6xl': '15.441rem',
+      xs: '0.75rem',   // Extra Small
+      sm: '0.875rem',  // Small
+      base: '1rem',    // Base
+      lg: '1.125rem',  // Large
+      xl: '1.25rem',   // Extra Large
+      '2xl': '1.5rem', // 2 Extra Large
+      '3xl': '1.875rem', // 3 Extra Large
+      '4xl': '2.25rem',  // 4 Extra Large
+      '5xl': '3rem',     // 5 Extra Large
+      '6xl': '4rem',     // 6 Extra Large
+      '7xl': '5rem',     // 7 Extra Large
+      '8xl': '6rem',     // 8 Extra Large
+      '9xl': '7rem',     // 9 Extra Large
     },
+    fontFamily: {
+      'display': ['Poppins']
+     },
     extend: {
       colors: {
-        primary: '#E11D48', // Change this color to your primary color
-        secondary: '#172554', // Change this color to your secondary color
-        accent: '#FFFFFF', // Change this color to your accent color
+        primary: '#0b36a8', // Change this color to your primary color
+        secondary: '#24262a', // Change this color to your secondary color
+        accent: '#7d8085', // Change this color to your accent color
+        bg1 : '#f7f9fb',
       },
       fontFamily: {
-        sans: ['Lato', ...defaultTheme.fontFamily.sans],
-        bebas: ['"Bebas Neue"'],
+        sans: ['"Open Sans"','Lato', ...defaultTheme.fontFamily.sans]
       },
       boxShadow:{
         myShadow1: "4.1px -5px 0 0  rgb(241 245 249)",
@@ -32,6 +40,5 @@ module.exports = {
       }
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('tailwindcss-animated')
-],
+  plugins: [],
 }

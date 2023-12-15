@@ -1,3 +1,6 @@
+import { faHtml5 } from "@fortawesome/free-brands-svg-icons";
+import { faCode, faDiamond } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -6,26 +9,46 @@ const Services = ({ data }) => {
   const {t} = useTranslation('common')
   const navigate = useNavigate()
   return (
-    <article className="bg-accent py-36">
-      <h2  className="mb-8 ml-14 font-bebas text-4xl text-black">{t('sections.sectionServices.title')}</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8  px-8">
-        {data.map((service) => (
+    <article className="bg-white py-20 px-10 md:px-44">
+      <h2  className="text-3xl text-black font-display mb-5 font-extrabold">{t('serviceSection.title')}</h2>
+      <p className=" text-start mb-10 text-lg">
+      Web design and development have been my bread<br /> and butter for more than 5 years. During that time I've discovered <br /> that I can help startups and companies with the following services
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
           <section
-            key={service.id}
-            className="bg-white text-center p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out"
+            className="bg-white text-justify p-6 rounded-none border border-accent border-opacity-25"
           >
-            <img
-              src={service.img}
-              alt={service.imageAlt}
-              className="h-24 w-24 mx-auto mb-4 rounded-full"
+            <FontAwesomeIcon
+              icon={faCode}
+              className="h-24 w-24 mx-auto mb-4 rounded-full text-primary"
             />
-            <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-            <p className="text-gray-600">{service.subtitle}</p>
-            <button onClick={()=>navigate(`/services/${service.id}`)} className="mt-4 bg-red-300 hover:bg-red-400 text-white py-2 px-4 rounded-full focus:outline-none focus:ring focus:ring-blue-300">
-              Learn More
-            </button>
+            <h3 className="text-xl font-bold mb-2 uppercase">{t('serviceSection.serviceA.title')}</h3>
+            <p className="text-gray-600">{t('serviceSection.serviceA.description')}</p>
+            
           </section>
-        ))}
+          <section
+            className="bg-white text-justify p-6 rounded-none border border-accent border-opacity-25"
+          >
+            <FontAwesomeIcon
+              icon={faCode}
+              className="h-24 w-24 mx-auto mb-4 rounded-full text-primary"
+            />
+            <h3 className="text-xl font-bold mb-2 uppercase">{t('serviceSection.serviceA.title')}</h3>
+            <p className="text-gray-600">{t('serviceSection.serviceA.description')}</p>
+            
+          </section>
+          <section
+            className="bg-white text-justify p-6 rounded-none border border-accent border-opacity-25"
+          >
+            <FontAwesomeIcon
+              icon={faCode}
+              className="h-24 w-24 mx-auto mb-4 rounded-full text-primary"
+            />
+            <h3 className="text-xl font-bold mb-2 uppercase">{t('serviceSection.serviceA.title')}</h3>
+            <p className="text-gray-600">{t('serviceSection.serviceA.description')}</p>
+            
+          </section>
       </div>
     </article>
   );

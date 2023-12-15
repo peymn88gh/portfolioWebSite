@@ -1,7 +1,7 @@
 export default function SecondaryButton({loading, children, onClick, icon }) {
     return (
-      <button disabled={loading} role="reset" onClick={onClick} className="disabled:text-gray-600 disabled:cursor-not-allowed text-primaryButton px-3 py-2 rounded-lg text-sm hover:scale-110">
-        <span>
+      <button disabled={loading} onClick={onClick} className="disabled:text-gray-600 disabled:cursor-not-allowed text-white hover:text-accent  px-10 py-4 rounded-lg text-sm duration-150">
+        <span className="hover:text-accent">
           {icon}
         </span>
         {children}

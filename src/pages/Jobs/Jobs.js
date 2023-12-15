@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Jobs = ({ data }) => {
   return (
     <article className=" py-20 mt-8 px-8">
-      <h1 className="text-4xl font-bebas pl-6 mb-8 text-accent">Explore Job Opportunities</h1>
+      <h1 className="text-4xl pl-6 mb-8 text-accent">Explore Job Opportunities</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {data.map((job) => (
             <Link

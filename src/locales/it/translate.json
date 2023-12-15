@@ -94,6 +94,46 @@
         "sectionServices": {
           "title": "i nostri servizi"
         }
+      },
+      "aboutMe" : {
+          "greeting" : "Hallo, ich bin Peyman,",
+          "description" : "And I love to create beautiful and efficient websites for my customers. I love going through the entire process with the customer from concept, to design and then development and launch",
+          "workExpA" : {
+                      "fromTo" : "2019 - present",
+                      "title" : "Freelance Web Developer",
+                      "description" : "Working happily on my own web projects"
+                      },
+          "workExpB" : {
+                      "fromTo" : "2019 - present",
+                      "title" : "Freelance Web Developer",
+                      "description" : "Working happily on my own web projects"
+                      },
+          "workExpC" : {
+                      "fromTo" : "2019 - present",
+                      "title" : "Freelance Web Developer",
+                      "description" : "Working happily on my own web projects"
+                      },
+          "workExpD" : {
+                      "fromTo" : "2019 - present",
+                      "title" : "Freelance Web Developer",
+                      "description" : "Working happily on my own web projects"
+                      }
+      },
+      "motto" :{
+          "first" : "I love to create",
+          "second" : "beautiful and",
+          "third" : "efficient websites"
+      },
+      "serviceSection" : {
+        "title" : "Offered Services",
+        "serviceA" : {
+            "title" : "development",
+            "description" : "Successful online projects start with good design. It establishes a solid foundation for future development and allows for long term growth"
+        }
+      },
+      "toolsSection" : {
+          "motto" : "Why work with me?",
+          "description" : "I am a great communicator and love to invest the necessary time to understand the customer's problem very well"
       }
       
 }

@@ -1,33 +1,84 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import NotFound from "pages/NotFound";
-import "flag-icons/css/flag-icons.min.css";
-import Layout from "components/Layout";
-import Home from "pages/Home/Home";
-import Jobs from "pages/Jobs/Jobs";
-import JobDetail from "pages/Jobs/JobDetail";
-import AboutUs from "pages/AboutUs";
-import Contact from "pages/Contact"
-import data from 'data/jobs.json';
-import Services from "components/Services/Services";
-import initservice from "data/services.json";
-import BookingService from "components/booking/bookingService";
+import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion'; // Import motion from framer-motion
+// import Layout from './Layout';
+// import Home from './Home';
+// import loadingSvg from './loadingSvg.svg'; // Import the SVG file
+import Home from 'pages/Home/Home';
+import Layout from 'components/Layout';
+import AnimatedSVG from 'components/loading/animatedSvg';
+// import Layout from 'components/Layout';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  // const [isOnline, setIsOnline] = useState(navigator.onLine);
+
+  // useEffect(() => {
+  //   const handleOnline = () => {
+  //     setIsOnline(true);
+  //   };
+
+  //   const handleOffline = () => {
+  //     setIsOnline(false);
+  //   };
+
+  //   window.addEventListener('online', handleOnline);
+  //   window.addEventListener('offline', handleOffline);
+
+  //   return () => {
+  //     window.removeEventListener('online', handleOnline);
+  //     window.removeEventListener('offline', handleOffline);
+  //   };
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log('Online status:', isOnline ? 'Online' : 'Offline');
+  // }, [isOnline]);
+
+  useEffect(() => {
+    hideSpinner(); // Hide the spinner when loading is complete
+    const timeout = setTimeout(() => {
+      setIsLoading(false);
+      setTimeout(() => {
+        showSpinner();
+      }, 500);
+    }, 2000);
+
+    return () => {clearTimeout(timeout)};
+  }, []);
+
+  // Function to hide the spinner by manipulating the DOM
+  const hideSpinner = () => {
+    const spinner = document.querySelector('.loading-spinner');
+    if (spinner) {
+      spinner.style.display = 'none';
+    }
+  };
+
+  const showSpinner = () => {
+    const spinner = document.querySelector('.loading-spinner');
+    if (spinner) {
+      spinner.style.display = 'block'; // Show the spinner
+    }
+  };
+
   return (
-    <div className="app">
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/jobs" element={<Jobs data={data.jobs}/>} />
-          <Route path="/jobs/:jobId" element={<JobDetail />} /> {/* Add a route for job detail */}
-          <Route path="/services" element={<Services data={initservice.data}/>} />
-          <Route path="/services/:serviceId" element={<BookingService />} /> Add a route for job detail
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/apply" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+    <div>
+      {isLoading ? (
+        <div
+          className="h-screen w-screen bg-bg1 flex items-center justify-center"
+         
+        >
+        <AnimatedSVG isLoading={isLoading}/>
+          
+        </div>
+      ) : (
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Home />} />
+          </Route>
+        </Routes>
+      )}
     </div>
   );
 }
