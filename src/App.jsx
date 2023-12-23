@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion'; // Import motion from framer-motion
-// import Layout from './Layout';
-// import Home from './Home';
-// import loadingSvg from './loadingSvg.svg'; // Import the SVG file
 import Home from 'pages/Home/Home';
 import Layout from 'components/Layout';
 import AnimatedSVG from 'components/loading/animatedSvg';
-// import Layout from 'components/Layout';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedSection, setSelectedSection] = useState('home')
   // const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   // useEffect(() => {
@@ -74,8 +70,8 @@ function App() {
         </div>
       ) : (
         <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route path="/" element={<Home />} />
+          <Route path="/" element={<Layout selectedSection={selectedSection} />}>
+            <Route path="/" element={<Home setSelectedSection={setSelectedSection}/>} />
           </Route>
         </Routes>
       )}

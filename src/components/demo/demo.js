@@ -2,8 +2,9 @@
 import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-
+import { useInView } from 'react-intersection-observer';
 export default function Demo({t}) {
+    // const []
   return (
     <div className='bg-white py-12 grid grid-cols-1 md:grid-cols-2 gap-5'>
         <div className=" order-1 relative py-12 px-10  w-full flex flex-col gap-7">
@@ -16,7 +17,7 @@ export default function Demo({t}) {
         </div>
 
        <div className=" order-2">
-            <Carousel showArrows autoPlay infiniteLoop interval={5000}>
+            <Carousel preventMovementUntilSwipeScrollTolerance={true} swipeScrollTolerance={50} showArrows autoPlay infiniteLoop interval={5000}>
                 <img src="onlineShop1.png" alt="Job Agancy" />
                 <img src="onlineShop2.png" alt="OnlineShop main page" />
                 <img src="onlineShop3.png" alt="OnlineShop product page" />
@@ -25,7 +26,7 @@ export default function Demo({t}) {
             </Carousel>
         </div> 
         <div className="order-4 md:order-3">
-            <Carousel showArrows autoPlay infiniteLoop interval={5000}>
+            <Carousel preventMovementUntilSwipeScrollTolerance={true} and swipeScrollTolerance={50} showArrows autoPlay infiniteLoop interval={5000}>
                 <img src="jobAgancy1.png" alt="Job Agancy" />
                 <img src="jobAgancy2.png" alt="OnlineShop main page" />
                 <img src="jobAgancy3.png" alt="OnlineShop product page" />

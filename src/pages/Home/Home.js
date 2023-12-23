@@ -13,25 +13,34 @@ import AboutMe from 'components/aboutMe/AboutMe';
 import Tools from 'components/toolsSection/tools';
 import Demo from 'components/demo/demo';
 import AnimatedComponent from 'components/animateComponent';
+import { Element } from 'react-scroll';
 const variants = {
     initial: { opacity: 0, x: -50 }, // Initial state (hidden to the left)
     animate: { opacity: 1, x: 0 }, // Animation when appearing (moves in from the left)
   };
-export default function Home(){
+export default function Home({setSelectedSection}){
     const { t, i18n} = useTranslation('common');
     const isPresent = useIsPresent()
-
+    const backgroundImage = 'url(\'me.jpg\')';
 
 
     return (
         <>
-            <div className=" h-screen w-screen relative overflow-hidden">
-                <div className=" absolute z-10 bg-secondary bg-opacity-90 w-screen h-screen flex-col">
-                    <AnimatePresence>
+        <Element  name='home'>
+            <div className="relative">
+                <div 
+                    style={{backgroundImage}} 
+                    className=" bg-origin-border bg-fixed bg-[center_right_-5rem] md:bg-[right_bottom_-10rem] bg-cover bg-no-repeat bg-secondary h-screen w-screen  overflow-hidden flex flex-col justify-center items-center md:items-start "
+                >
+                {/* <img src='me.jpg' className=''/> */}
+
+                    
+                </div>
+                <AnimatePresence>
                         {isPresent && (
                             <>
                                 <motion.hgroup 
-                                    className="absolute text-neutral-100 left-10 md:left-44 top-44 md:top-72 text-4xl md:text-6xl leading-tight p-0 m-0"
+                                    className="absolute top-[40%] left-[15%] text-white text-justify text-4xl md:text-6xl leading-tight"
                                     initial="initial"
                                     animate="animate"
                                     variants={variants}
@@ -44,37 +53,39 @@ export default function Home(){
                                     <ThemButton>Discover</ThemButton>
                                     <SecondaryButton icon={<FontAwesomeIcon icon={faUser} className='mr-2' />}>contact me</SecondaryButton>
                                 </motion.hgroup>
-                                
                             </>        
                         )}
                     </AnimatePresence>
-                </div>
-                <video
-                autoPlay
-                loop
-                muted
-                className='w-full max-md:hidden md:scale-125'
-                >
-                    <source src="pexels_videos_2325093.mp4" type="video/mp4" />
-                    {/* Add other source tags for different video formats if necessary */}
-                    Your browser does not support the video tag.
-                </video>
             </div>
-            <AnimatedComponent>
-                <AboutMe t={t}/>
-            </AnimatedComponent>
-            <AnimatedComponent>
-                <Services  data={initservice.data}/>
-            </AnimatedComponent>
-            <AnimatedComponent>
-                <HirePeople />
-            </AnimatedComponent>
-            <AnimatedComponent>
-                <Tools t={t} />
-            </AnimatedComponent>
-            <AnimatedComponent>
-                <Demo t={t}/>
-            </AnimatedComponent>
+        </Element>
+            
+            <Element name='aboutme'>
+               <AnimatedComponent setSelectedSection={setSelectedSection} sectionName={'aboutme'}>
+                    <AboutMe t={t}/>
+                </AnimatedComponent> 
+            </Element>
+            <Element name='services'>
+               <AnimatedComponent setSelectedSection={setSelectedSection} sectionName={'services'}>
+                    <Services  data={initservice.data}/>
+                </AnimatedComponent> 
+            </Element>
+            <Element name='testemonials'>
+                <AnimatedComponent setSelectedSection={setSelectedSection} sectionName={'testemonials'}>
+                    <HirePeople />
+                </AnimatedComponent> 
+            </Element>
+            <Element  name='tools'>
+               <AnimatedComponent setSelectedSection={setSelectedSection} sectionName={'tools'}>
+                    <Tools t={t} />
+                </AnimatedComponent> 
+            </Element>
+            <Element  name='demo'>
+               <AnimatedComponent setSelectedSection={setSelectedSection} sectionName={'demo'}>
+                    <Demo t={t}/>
+                </AnimatedComponent> 
+            </Element>
+            
+            
         </>
     );
 }

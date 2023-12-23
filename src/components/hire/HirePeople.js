@@ -7,7 +7,7 @@ import React, { useEffect, useRef, useState } from "react";
 export default function HirePeople(){
 
     return (
-    <article className="bg-bg1 py-12 md:px-44 grid grid-cols-1 md:grid-cols-2 gap-y-5 md:gap-5">
+    <article className="bg-bg1 py-12 md:px-44 grid grid-cols-1 gap-y-5 md:gap-5">
     <div className="pl-10 md:pl-0">
         <h2 className="mb-8  text-4xl text-primary">want to get hired?</h2>
         <div className=" text-accent text-xl">
@@ -19,12 +19,12 @@ export default function HirePeople(){
     </div>
     {/* <div className=" min-w-full md:min-w-[50%]"> */}
         
-        <div className="relative">
+        {/* <div className="relative">
             <div className="mt-24">
                 <img src="/nith-in-w1N1WmLDyHU-unsplash.png" className=" h-[450px]" />
             </div>
             <FontAwesomeIcon icon={faQuoteRight} className="top-0 left-36 md:left-52 absolute text-primary  h-32 w-32"/>
-        </div>
+        </div> */}
         
     {/* </div> */}
   </article>

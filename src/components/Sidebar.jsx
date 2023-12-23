@@ -1,11 +1,15 @@
 import React from "react";
-import { AnimatePresence, motion, useCycle } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import LangBar from "./LangBar/LangBar";
+import { useTranslation } from "react-i18next";
+import { scroller } from "react-scroll";
 
 const links = [
-  { name: "Home", to: "#", id: 1 },
-  { name: "About", to: "#", id: 2 },
-  { name: "Blog", to: "#", id: 3 },
-  { name: "Contact", to: "#", id: 4 }
+  { name: "aboutme", id: 1 },
+  { name: "services", id: 2 },
+  { name: "testemonials", id: 3 },
+  { name: "tools", id: 4 },
+  { name: "demo", id: 5 }
 ];
 
 const itemVariants = {
@@ -30,9 +34,18 @@ const sideVariants = {
   }
 };
 
-export default function SideBar({open}) {
+export default function SideBar({cycleOpen, selectedSection, open}) {
+  const {t, i18n} = useTranslation('common')
+  function handleScroll(name){
+    scroller.scrollTo(name, {
+      duration: 3000,
+      delay: 0,
+      smooth: 'easeInOutQuint',
 
-
+      // ... other options
+    });
+    cycleOpen();
+  }
   return (
       <AnimatePresence>
         {open && (
@@ -54,15 +67,18 @@ export default function SideBar({open}) {
               exit="closed"
               variants={sideVariants}
             >
-              {links.map(({ name, to, id }) => (
-                <motion.a
+              <LangBar mode={"mobile"} firstLang={i18n.language} />
+              {links.map(({ name, id }) => (
+                <motion.p
                   key={id}
-                  href={to}
+                  // href={to}
+                  className={`${selectedSection===name ? 'text-secondary' : ' cursor-pointer'} `}
+                  onClick={()=>handleScroll(name)}
                   whileHover={{ scale: 1.1 }}
                   variants={itemVariants}
                 >
                   {name}
-                </motion.a>
+                </motion.p>
               ))}
             </motion.div>
           </motion.aside>
