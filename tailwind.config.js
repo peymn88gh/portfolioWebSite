@@ -14,8 +14,8 @@ module.exports = {
       xl: '1.25rem',   // Extra Large
       '2xl': '1.5rem', // 2 Extra Large
       '3xl': '1.875rem', // 3 Extra Large
-      '4xl': '2.25rem',  // 4 Extra Large
-      '5xl': '3rem',     // 5 Extra Large
+      '4xl': '2.875rem',  // 4 Extra Large
+      '5xl': '3.75rem',     // 5 Extra Large
       '6xl': '4rem',     // 6 Extra Large
       '7xl': '5rem',     // 7 Extra Large
       '8xl': '6rem',     // 8 Extra Large
@@ -32,7 +32,8 @@ module.exports = {
         bg1 : '#f7f9fb',
       },
       fontFamily: {
-        sans: ['"Open Sans"','Lato', ...defaultTheme.fontFamily.sans]
+        sans: ['"Open Sans"','Lato', ...defaultTheme.fontFamily.sans],
+        poppins:['Poppins']
       },
       boxShadow:{
         myShadow1: "4.1px -5px 0 0  rgb(241 245 249)",

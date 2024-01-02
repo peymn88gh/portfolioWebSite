@@ -68,18 +68,54 @@ export default function SideBar({cycleOpen, selectedSection, open}) {
               variants={sideVariants}
             >
               <LangBar mode={"mobile"} firstLang={i18n.language} />
-              {links.map(({ name, id }) => (
                 <motion.p
-                  key={id}
-                  // href={to}
-                  className={`${selectedSection===name ? 'text-secondary' : ' cursor-pointer'} `}
-                  onClick={()=>handleScroll(name)}
+                  className={`${selectedSection==='aboutme' ? 'text-secondary' : ' cursor-pointer'} `}
+                  onClick={()=>handleScroll('aboutme')}
                   whileHover={{ scale: 1.1 }}
                   variants={itemVariants}
                 >
-                  {name}
+                  {t('menu.aboutme')}
                 </motion.p>
-              ))}
+                <motion.p
+                  className={`${selectedSection==='services' ? 'text-secondary' : ' cursor-pointer'} `}
+                  onClick={()=>handleScroll('services')}
+                  whileHover={{ scale: 1.1 }}
+                  variants={itemVariants}
+                >
+                  {t('menu.services')}
+                </motion.p>
+                <motion.p
+                  className={`${selectedSection==='testemonials' ? 'text-secondary' : ' cursor-pointer'} `}
+                  onClick={()=>handleScroll('testemonials')}
+                  whileHover={{ scale: 1.1 }}
+                  variants={itemVariants}
+                >
+                  {t('menu.testemonials')}
+                </motion.p>
+                <motion.p
+                  className={`${selectedSection==='tools' ? 'text-secondary' : ' cursor-pointer'} `}
+                  onClick={()=>handleScroll('tools')}
+                  whileHover={{ scale: 1.1 }}
+                  variants={itemVariants}
+                >
+                  {t('menu.tools')}
+                </motion.p>
+                <motion.p
+                  className={`${selectedSection==='demo' ? 'text-secondary' : ' cursor-pointer'} `}
+                  onClick={()=>handleScroll('demo')}
+                  whileHover={{ scale: 1.1 }}
+                  variants={itemVariants}
+                >
+                  {t('menu.demo')}
+                </motion.p>
+                <motion.p
+                  className={`${selectedSection==='contactme' ? 'text-secondary' : ' cursor-pointer'} `}
+                  onClick={()=>handleScroll('contactme')}
+                  whileHover={{ scale: 1.1 }}
+                  variants={itemVariants}
+                >
+                  {t('menu.contactme')}
+                </motion.p>
             </motion.div>
           </motion.aside>
         )}

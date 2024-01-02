@@ -18,9 +18,7 @@ const logoVariants = {
 };
 
 const Header = ({selectedSection, menuStyles, open, cycleOpen}) => {
-  console.log(selectedSection,'selectedSection in header');
   const { t, i18n} = useTranslation('common');
-  const navigate = useNavigate()
   const AppliedStylesToHeader = giveStylesToMenu('AppliedStylesToHeader',menuStyles)
   const AppliedStylesToNav = giveStylesToMenu('AppliedStylesToNav',menuStyles)
 
@@ -28,7 +26,7 @@ const Header = ({selectedSection, menuStyles, open, cycleOpen}) => {
     switch (where) {
       case 'AppliedStylesToHeader':{
         if (state === 'change') {
-          return 'fixed z-50 max-h-max w-full font-sans bg-secondary bg-opacity-90 backdrop-blur-sm';
+          return 'fixed z-50 max-h-max w-full font-sans bg-secondary bg-opacity-40 backdrop-blur-md';
         }
         else {
           return 'absolute mt-5 z-50 w-full font-sans bg-transparent';
@@ -37,13 +35,10 @@ const Header = ({selectedSection, menuStyles, open, cycleOpen}) => {
       }
       case 'AppliedStylesToNav':{
         if (state === 'change') {
-          return "max-md:hidden flex justify-evenly w-1/2 font-sans  text-white text-lg";
+          return "max-lg:hidden flex justify-evenly  lg:w-2/3 font-sans  text-white text-lg";
         }
         if (state === 'default') {
-          return "max-md:hidden flex justify-evenly w-1/2 font-sans text-white text-lg";
-        }
-        if (state === 'serviceSectionDefault') {
-          return "max-md:hidden flex justify-evenly w-1/2 font-sans text-secondary text-xl";
+          return "max-lg:hidden flex justify-evenly  lg:w-2/3 font-sans text-white text-lg";
         }
         
       }
@@ -67,7 +62,6 @@ const Header = ({selectedSection, menuStyles, open, cycleOpen}) => {
   
   return (
     <motion.header
-        // key={menuStyles} // Ensure a unique key when the menuStyles change
         className={AppliedStylesToHeader}
         
       >
@@ -76,18 +70,18 @@ const Header = ({selectedSection, menuStyles, open, cycleOpen}) => {
         <motion.img variants={logoVariants} initial="initial" animate="animate" transition={{ duration: 2 }} className=' mb-3 h-10 w-44 scale-75' src='/PLogo.png'/>        
 
         <motion.ul variants={headerVariants} initial="initial" animate="animate" transition={{ duration: 2 }} className={AppliedStylesToNav}>
-          {/* <li className=' hover:text-accent duration-150'><NavLink  className={`${selectedSection==='home' ? ' text-accent' : ''} px-2`} onClick={scrollToTop}>{t("menu.home")}</NavLink></li> */}
           <li className=' hover:text-accent duration-150 cursor-pointer' ><span onClick={()=>handleScroll('aboutme')} className={`${selectedSection==='aboutme' && menuStyles!=='default' ? ' text-accent' : ''} px-2`} >{t("menu.aboutme")}</span></li>
           <li className=' hover:text-accent duration-150 cursor-pointer' ><span onClick={()=>handleScroll('services')} className={`${selectedSection==='services' ? ' text-accent' : ''} px-2`} >{t("menu.services")}</span></li>
           <li className=' hover:text-accent duration-150 cursor-pointer' ><span onClick={()=>handleScroll('testemonials')} className={`${selectedSection==='testemonials' ? ' text-accent' : ''} px-2`} >{t("menu.testemonials")}</span></li>
           <li className=' hover:text-accent duration-150 cursor-pointer' ><span onClick={()=>handleScroll('tools')} className={`${selectedSection==='tools' ? ' text-accent' : ''} px-2`} >{t("menu.tools")}</span></li>
           <li className=' hover:text-accent duration-150 cursor-pointer' ><span onClick={()=>handleScroll('demo')} className={`${selectedSection==='demo' ? ' text-accent' : ''} px-2`} >{t("menu.demo")}</span></li>
+          <li className=' hover:text-accent duration-150 cursor-pointer' ><span onClick={()=>handleScroll('contactme')} className={`${selectedSection==='contactme' ? ' text-accent' : ''} px-2`} >{t("menu.contactme")}</span></li>
           <li className=' '>
             <LangBar firstLang={i18n.language} />
           </li>
         </motion.ul>
-      {!open && <button onClick={cycleOpen} className='md:hidden text-white start-0 mt-2 scale-125'><circle className={` py-2 px-3 ${menuStyles==='default' ? 'hover:bg-black focus:bg-black' : 'hover:bg-accent focus:bg-accent'} rounded-full  duration-150 transition-colors`}><FontAwesomeIcon icon={faBars}/></circle></button>}
-      {open && <button onClick={cycleOpen} className='md:hidden text-white start-0 mt-2 scale-125'><circle className={` py-2 px-3 ${menuStyles==='default' ? 'hover:bg-black focus:bg-black' : 'hover:bg-accent focus:bg-accent'} rounded-full  duration-150 transition-colors`}><FontAwesomeIcon icon={faClose}/></circle></button>}
+      {!open && <button onClick={cycleOpen} className='lg:hidden text-white start-0 mt-2 scale-125'><circle className={` py-2 px-3 ${menuStyles==='default' ? 'hover:bg-black focus:bg-black' : 'hover:bg-accent focus:bg-accent'} rounded-full  duration-150 transition-colors`}><FontAwesomeIcon icon={faBars}/></circle></button>}
+      {open && <button onClick={cycleOpen} className='lg:hidden text-white start-0 mt-2 scale-125'><circle className={` py-2 px-3 ${menuStyles==='default' ? 'hover:bg-black focus:bg-black' : 'hover:bg-accent focus:bg-accent'} rounded-full  duration-150 transition-colors`}><FontAwesomeIcon icon={faClose}/></circle></button>}
       </nav>
     </motion.header>
   );

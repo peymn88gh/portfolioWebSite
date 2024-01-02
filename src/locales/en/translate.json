@@ -3,71 +3,105 @@
     "home" : "home",
     "aboutme" : "about me",
     "services" : "services",
-    "testemonials" : "testemonials",
+    "testemonials" : "testimonials",
     "tools" : "tools",
-    "demo" : "demo"
+    "demo" : "demo",
+    "contactme" : "contact me"
     },
-    "sections": {
-        "sectionOne": "Our Latest Job Openings",
-        "sectionTwo": {
-          "h1": "we are",
-          "h21": "15 years",
-          "h22": "in business",
-          "h31": "90%",
-          "h32": "excellence rating",
-          "h41": "2 million",
-          "h42": "candidate database",
-          "h51": "1000",
-          "h52": "clients",
-          "b1": "learn more about us"
-        },
-        "sectionFooter": {
-          "footerText": "All Rights Reserved"
-        },
-        "sectionServices": {
-          "title": "Our Services"
-        }
+    "aboutMe": {
+      "greeting": "Hi there, I'm Peyman,",
+      "description": "I love building fast, efficient websites for clients. With experience in every step of web development—from meeting clients to coding—I use top-notch tools to create sites similar to the one we're currently on.",
+      "workExpA": {
+        "fromTo": "2023 - Present",
+        "title": "Freelance Web Developer",
+        "description": "Enjoying working on personal web projects."
       },
-      "aboutMe" : {
-          "greeting" : "Hi there i'm Peyman,",
-          "description" : "And I love to create beautiful and efficient websites for my customers. I love going through the entire process with the customer from concept, to design and then development and launch",
-          "workExpA" : {
-                      "fromTo" : "2019 - present",
-                      "title" : "Freelance Web Developer",
-                      "description" : "Working happily on my own web projects"
-                      },
-          "workExpB" : {
-                      "fromTo" : "2019 - present",
-                      "title" : "Freelance Web Developer",
-                      "description" : "Working happily on my own web projects"
-                      },
-          "workExpC" : {
-                      "fromTo" : "2019 - present",
-                      "title" : "Freelance Web Developer",
-                      "description" : "Working happily on my own web projects"
-                      },
-          "workExpD" : {
-                      "fromTo" : "2019 - present",
-                      "title" : "Freelance Web Developer",
-                      "description" : "Working happily on my own web projects"
-                      }
+      "workExpB": {
+        "fromTo": "2022 - Present",
+        "title": "Frontend Web Developer",
+        "description": "Specializing in React development."
       },
-      "motto" :{
-          "first" : "I love to create",
-          "second" : "beautiful and",
-          "third" : "efficient websites"
+      "workExpC": {
+        "fromTo": "2021 - 2022",
+        "title": "Backend Web Developer",
+        "description": "Designing and developing RESTful APIs."
       },
-      "serviceSection" : {
-        "title" : "Offered Services",
-        "serviceA" : {
-            "title" : "development",
-            "description" : "Successful online projects start with good design. It establishes a solid foundation for future development and allows for long term growth"
-        }
-      },
-      "toolsSection" : {
-        "motto" : "Why work with me?",
-        "description" : "I am a great communicator and love to invest the necessary time to understand the customer's problem very well"
+      "workExpD": {
+        "fromTo": "2020 - 2021",
+        "title": "Systems Engineering & Analysis",
+        "description": "Designing systems to provide optimal solutions."
       }
+      
+    },
+    "motto" :{
+        "first" : "I make",
+        "second" : "efficient fast",
+        "third" : "web applications"
+    },
+    "serviceSection" : {
+      "title" : "Offered Services",
+      "description": "Building awesome websites with React's magic! Tailored designs and smooth interfaces for your standout online presence.",
+      "serviceA" : {
+        "title" : "Custom React Web Development",
+        "description" : "Tailored development of dynamic and responsive websites from scratch."
+      },
+      "serviceB" : {
+        "title" : "React Frontend Development",
+        "description" : "Creating sleek and user-friendly interfaces using React.js."
+      },
+      "serviceC" : {
+        "title" : "Full-Stack Development with React and Strapi.js",
+        "description" : "Integration of React for frontend and Strapi.js for backend solutions."
+      },
+      "serviceD" : {
+        "title" : "React UI/UX Enhancement",
+        "description" : "Improving existing React applications for better user experiences."
+      },
+      "serviceE" : {
+        "title" : "Responsive Web Design with React",
+        "description" : "Developing mobile-responsive websites using React for cross-device compatibility."
+      }
+    },
+    "testimonials" : {
+      "title" : "Praise & Acknowledgments",
+      "description" : "Explore testimonials shared by former colleagues and professionals I've worked with. Their words offer insights into my work ethic and collaborative skills.",
+      "first" : {
+          "praise" : "I am delighted to recommend Peyman as a standout Full Stack Developer. Peyman possesses an impressive blend of technical expertise and creative problem-solving skills that significantly contributed to the success of Sajayanegar's projects. Their proficiency in both front-end and back-end development is exemplary, ensuring seamless and efficient functionality across the entire stack. What sets Peyman apart is not only his technical capabilities but also his kindness, i won't forget his smille .... I have no doubt that Peyman would be a tremendous asset to any organization seeking a top-tier Full Stack Developer or a freelancer one!",
+          "name" : "Hani Vahdani - Business Development Manager"
+      },
+      "second" : {
+        "praise" : "Working with Peyman as a developer was an exceptional experience. His technical prowess is truly impressive; he navigated us through complex challenges effortlessly, despite my limited technical knowledge. His guidance and expertise were invaluable, making every hurdle seem manageable. Working alongside Peyman was a testament to professional excellence, leaving me astounded by his skill and professionalism as a developer.",
+        "name" : "Kamran Mogharian - Manager"
+      }
+    },
+    "toolsSection": {
+      "motto": "Why Collaborate with Me?",
+      "description": "I excel in effective communication, dedicating time to deeply understand clients' challenges and needs, ensuring tailor-made solutions.",
+      "toolsTitle": "Tools I Utilize",
+      "tDescription": "In my toolkit, I rely on React, Tailwind CSS, Strapi.js, and JavaScript to craft efficient and scalable web solutions."
+    },
+    "demoSection": {
+      "first": {
+        "title": "Smart Solutions",
+        "description": "React helps me create smart and advanced features. I use its powerful tools to build solutions that fit each customer's unique needs. By using its flexible setup, I solve tricky challenges effectively and get the best results."
+      },
+      "second": {
+        "title": "Elegant Design",
+        "description": "Design matters in every project I do. I focus on making beautiful and easy-to-use designs. My goal is to make designs that look great and work great, giving users a memorable experience."
+      }
+    },
+    "contactme" : {
+      "title" : "Get in Touch",
+      "description" : "Feel free to reach out via email or connect through other platforms:"
+    },
+    "footer" : {
+      "title" : "2023 Peyman PortfolioWebsite.",
+      "description" : "UI design adapted from "
+    },
+    "buttons" : {
+        "discover" : "Discover",
+        "contactme" : "Contact me"
+    }
       
 
 }

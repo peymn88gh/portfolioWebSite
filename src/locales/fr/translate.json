@@ -1,72 +1,105 @@
 {
-    "menu" : {
-    "home" : "home",
-    "aboutme" : "about me",
-    "services" : "services",
-    "testemonials" : "testemonials",
-    "tools" : "tools",
-    "demo" : "demo"
+    "menu": {
+      "home": "Accueil",
+      "aboutme": "À propos",
+      "services": "Services",
+      "testemonials": "Témoignages",
+      "tools": "Outils",
+      "demo": "Démo",
+      "contactme": "Me contacter"
     },
-    "sections": {
-        "sectionOne": "Nos Dernières Offres d'Emploi",
-        "sectionTwo": {
-          "h1": "nous sommes",
-          "h21": "15 ans",
-          "h22": "dans le secteur",
-          "h31": "90%",
-          "h32": "évaluation d'excellence",
-          "h41": "2 millions",
-          "h42": "base de données des candidats",
-          "h51": "1000",
-          "h52": "clients",
-          "b1": "en savoir plus sur nous"
-        },
-        "sectionFooter": {
-          "footerText": "Tous droits réservés"
-        },
-        "sectionServices": {
-          "title": "Nos Services"
-        }
+    "aboutMe": {
+      "greeting": "Bonjour, je suis Peyman,",
+      "description": "J'adore construire des sites web rapides et efficaces pour mes clients. Fort d'une expérience à chaque étape du développement web, de la rencontre avec les clients à la programmation, j'utilise des outils de qualité pour créer des sites similaires à celui sur lequel nous sommes actuellement.",
+      "workExpA": {
+        "fromTo": "2023 - aujourd'hui",
+        "title": "Développeur Web Indépendant",
+        "description": "Apprécie de travailler sur mes propres projets web."
       },
-      "aboutMe" : {
-          "greeting" : "Hallo, ich bin Peyman,",
-          "description" : "And I love to create beautiful and efficient websites for my customers. I love going through the entire process with the customer from concept, to design and then development and launch",
-          "workExpA" : {
-                      "fromTo" : "2019 - present",
-                      "title" : "Freelance Web Developer",
-                      "description" : "Working happily on my own web projects"
-                      },
-          "workExpB" : {
-                      "fromTo" : "2019 - present",
-                      "title" : "Freelance Web Developer",
-                      "description" : "Working happily on my own web projects"
-                      },
-          "workExpC" : {
-                      "fromTo" : "2019 - present",
-                      "title" : "Freelance Web Developer",
-                      "description" : "Working happily on my own web projects"
-                      },
-          "workExpD" : {
-                      "fromTo" : "2019 - present",
-                      "title" : "Freelance Web Developer",
-                      "description" : "Working happily on my own web projects"
-                      }
+      "workExpB": {
+        "fromTo": "2022 - aujourd'hui",
+        "title": "Développeur Web Frontend",
+        "description": "Spécialisation dans le développement avec React."
       },
-      "motto" :{
-          "first" : "I love to create",
-          "second" : "beautiful and",
-          "third" : "efficient websites"
+      "workExpC": {
+        "fromTo": "2021 - 2022",
+        "title": "Développeur Web Backend",
+        "description": "Conception et développement d'API REST."
       },
-      "serviceSection" : {
-        "title" : "Offered Services",
-        "serviceA" : {
-            "title" : "development",
-            "description" : "Successful online projects start with good design. It establishes a solid foundation for future development and allows for long term growth"
-        }
+      "workExpD": {
+        "fromTo": "2020 - 2021",
+        "title": "Ingénierie et Analyse Systèmes",
+        "description": "Conception de systèmes pour offrir des solutions optimales."
+      }      
+    },
+    "motto": {
+      "first": "Je crée",
+      "second": "des applications web",
+      "third": "efficaces et rapides"
+    },
+    "serviceSection": {
+      "title": "Services Proposés",
+      "description": "Création de sites web incroyables avec la magie de React ! Designs sur mesure et interfaces fluides pour une présence en ligne remarquable.",
+      "serviceA": {
+        "title": "Développement Web React Personnalisé",
+        "description": "Développement sur mesure de sites web dynamiques et réactifs à partir de zéro."
       },
-      "toolsSection" : {
-          "motto" : "Why work with me?",
-          "description" : "I am a great communicator and love to invest the necessary time to understand the customer's problem very well"
+      "serviceB": {
+        "title": "Développement Frontend avec React",
+        "description": "Création d'interfaces épurées et conviviales à l'aide de React.js."
+      },
+      "serviceC": {
+        "title": "Développement Full-Stack avec React et Strapi.js",
+        "description": "Intégration de React pour le frontend et de Strapi.js pour des solutions backend."
+      },
+      "serviceD": {
+        "title": "Amélioration UI/UX avec React",
+        "description": "Amélioration des applications React existantes pour de meilleures expériences utilisateur."
+      },
+      "serviceE": {
+        "title": "Conception Web Réactive avec React",
+        "description": "Développement de sites web réactifs pour une compatibilité multi-appareils avec React."
       }
+    },
+    "testimonials": {
+      "title": "Louanges & Reconnaissances",
+      "description": "Découvrez les témoignages partagés par d'anciens collègues et professionnels avec lesquels j'ai travaillé. Leurs mots offrent un aperçu de mon éthique de travail et de mes compétences en matière de collaboration.",
+      "first": {
+        "praise": "Je suis ravi de recommander Peyman en tant qu'excellent développeur Full Stack. Peyman possède un mélange impressionnant d'expertise technique et de compétences créatives en résolution de problèmes qui ont contribué de manière significative au succès des projets de Sajayanegar. Sa maîtrise du développement front-end et back-end est exemplaire, assurant une fonctionnalité fluide et efficace sur l'ensemble de la plateforme. Ce qui distingue Peyman, ce ne sont pas seulement ses compétences techniques, mais aussi sa gentillesse. Je n'oublierai jamais son sourire... Je suis convaincu que Peyman serait un atout considérable pour toute organisation recherchant un développeur Full Stack de premier ordre ou un freelance !",
+        "name": "Hani Vahdani - Directeur du développement commercial"
+      },
+      "second": {
+        "praise": "Travailler avec Peyman en tant que développeur a été une expérience exceptionnelle. Sa maîtrise technique est vraiment impressionnante ; il nous a guidés à travers des défis complexes sans effort, malgré mes connaissances techniques limitées. Ses conseils et son expertise étaient inestimables, rendant chaque obstacle gérable. Travailler aux côtés de Peyman a été un témoignage d'excellence professionnelle, me laissant stupéfait par ses compétences et son professionnalisme en tant que développeur.",
+        "name": "Kamran Mogharian - Manager"
+      }
+    },
+    "contactme": {
+      "title": "Restez en Contact",
+      "description": "N'hésitez pas à nous contacter par e-mail ou à vous connecter via d'autres plateformes :"
+    },    
+    "toolsSection": {
+      "motto": "Pourquoi collaborer avec moi ?",
+      "description": "Je brille par une communication efficace, en consacrant du temps pour comprendre en profondeur les défis et les besoins de mes clients, garantissant ainsi des solutions sur mesure.",
+      "toolsTitle": "Outils que j'utilise",
+      "tDescription": "Dans ma boîte à outils, j'utilise React, Tailwind CSS, Strapi.js et JavaScript pour concevoir des solutions Web efficaces et évolutives."
+    },
+    "demoSection": {
+      "first": {
+        "title": "Solutions Innovantes",
+        "description": "React me permet de créer des fonctionnalités intelligentes et avancées. J'utilise ses outils puissants pour développer des solutions adaptées aux besoins uniques de chaque client. En utilisant sa structure flexible, je résous efficacement les défis complexes et obtiens les meilleurs résultats."
+      },
+      "second": {
+        "title": "Design Élégant",
+        "description": "Le design est essentiel dans chacun de mes projets. Je me concentre sur la création de designs beaux et faciles à utiliser. Mon objectif est de concevoir des designs attrayants et conviviaux, offrant aux utilisateurs une expérience mémorable."
+      }
+    },    
+    "footer": {
+      "title": "2023 Peyman PortfolioWebsite.",
+      "description": "Conception UI adaptée de "
+    },    
+    "buttons" : {
+        "discover" : "Découvrir",
+        "contactme" : "Contactez-moi"
+    }
       
 }

@@ -35,9 +35,6 @@ function App() {
     hideSpinner(); // Hide the spinner when loading is complete
     const timeout = setTimeout(() => {
       setIsLoading(false);
-      setTimeout(() => {
-        showSpinner();
-      }, 500);
     }, 2000);
 
     return () => {clearTimeout(timeout)};
@@ -51,12 +48,12 @@ function App() {
     }
   };
 
-  const showSpinner = () => {
-    const spinner = document.querySelector('.loading-spinner');
-    if (spinner) {
-      spinner.style.display = 'block'; // Show the spinner
-    }
-  };
+  // const showSpinner = () => {
+  //   const spinner = document.querySelector('.loading-spinner');
+  //   if (spinner) {
+  //     spinner.style.display = 'block'; // Show the spinner
+  //   }
+  // };
 
   return (
     <div>
