@@ -8,6 +8,4 @@ A Persian (RTL) slide deck proposing a small "Process Improvement & AI" unit ins
   - Print to PDF from the browser: one slide per page
 - `NOTES.md`: preparation checklist, objection handling, and how to approach the compensation conversation.
 
-Purple `[...]` placeholders mark the real numbers and names you need to fill in before the meeting.
-
 The rest of this repository (the old portfolio site) is unrelated to this project.

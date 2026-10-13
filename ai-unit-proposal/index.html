@@ -64,6 +64,7 @@
   .muted { color: var(--muted); }
 
   .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  @media (min-width: 700px) { .grid.g2 { grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 900px) { .grid.g3 { grid-template-columns: repeat(3, 1fr); } }
   .card {
     background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
@@ -83,11 +84,6 @@
     border-inline-start: 6px solid var(--accent); padding-inline-start: 24px; margin: 0 0 28px;
   }
 
-  /* placeholders the presenter must fill in with real numbers */
-  .fill {
-    background: var(--fill-soft); color: var(--fill); border-radius: 6px;
-    padding: 0 6px; font-weight: 600; white-space: nowrap;
-  }
 
   .org { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 8px 0 20px; }
   .node {
@@ -164,7 +160,6 @@
   <p class="kicker">پیشنهاد به مدیریت توسعه‌ی سازمانی</p>
   <h1>بازی عوض شده.<br>آرایش ما چطور؟</h1>
   <p class="lead">پیشنهاد تشکیل واحد کوچک و چابک «بهبود فرآیندها و هوش مصنوعی»</p>
-  <p class="muted"><span class="fill">[نام شما]</span> · <span class="fill">[تاریخ جلسه]</span></p>
   <aside class="note">هدف این جلسه گرفتن یک تصمیم است، نه فقط ارائه‌ی اطلاعات. از همان اول بگو در پایان ارائه یک درخواست مشخص داری، تا مخاطب با این نگاه گوش بدهد.</aside>
 </section>
 
@@ -194,7 +189,7 @@
 <section class="slide">
   <p class="kicker">شواهد: آنچه همین حالا ساخته‌ایم</p>
   <h2>این پیشنهاد روی کارِ انجام‌شده بنا شده است، نه روی وعده</h2>
-  <div class="grid">
+  <div class="grid g2">
     <div class="card feature">
       <h3>ثبت مکانیزه‌ی چک‌ها و رسیدهای واریزی بانکی در ERP</h3>
       <p>کاری که قبلاً سه نفر انجام می‌دادند، حالا یک نفر انجام می‌دهد.</p>
@@ -205,9 +200,8 @@
         <div><div class="num">≈ ۳۸۰ ساعت</div><small>در ماه، معادل کار دو نیروی تمام‌وقت</small></div>
       </div>
     </div>
-    <div class="card"><div class="num"><span class="fill">[N]</span></div><h3>سند در پایگاه دانش (RAG)</h3><p>دانش پراکنده‌ی شرکت حالا قابل پرسیدن است.</p></div>
-    <div class="card"><div class="num"><span class="fill">[N]</span></div><h3>سیستم متصل با MCP</h3><p><span class="fill">[مثلاً ERP، انبار، فروش]</span> با زبان طبیعی در دسترس است.</p></div>
-    <div class="card"><div class="num"><span class="fill">[N]</span></div><h3>کاربر فعال</h3><p>در <span class="fill">[N]</span> واحد مختلف.</p></div>
+    <div class="card"><h3>پایگاه دانش سازمانی (RAG)</h3><p>دانش پراکنده‌ی شرکت حالا با یک سؤال ساده در دسترس است.</p></div>
+    <div class="card"><h3>اتصال سیستم‌ها با MCP</h3><p>سیستم‌های شرکت با زبان طبیعی قابل پرسیدن و استفاده‌اند.</p></div>
   </div>
   <aside class="note">پروژه‌ی چک‌ها را اول بگو؛ ملموس‌ترین نتیجه است و مدیر مالی هم می‌تواند تأییدش کند. محاسبه‌ی ۳۸۰ ساعت: ۲ نفر × ۴۴ ساعت در هفته × ۵۲ هفته ÷ ۱۲ ماه ≈ ۳۸۰ ساعت در ماه (حدود ۴٬۶۰۰ ساعت در سال). این عدد فقط وقتی درست است که آن سه نفر تمام‌وقت روی این کار بوده‌اند؛ اگر بخشی از وقتشان بود، به همان نسبت کمش کن. حساس: بگو آن دو نفر به کار ارزشمندتری منتقل شده‌اند (اگر واقعاً این‌طور است، بگو به چه کاری). این پیشنهاد نباید بوی تعدیل نیرو بدهد، وگرنه بقیه‌ی همکاران در برابر AI مقاومت می‌کنند. اگر می‌توانی یک دموی ۶۰ ثانیه‌ای از ثبت یک چک نشان بده.</aside>
 </section>
@@ -294,10 +288,10 @@
   <p class="kicker">تیم</p>
   <h2>چرا این دو همکار</h2>
   <ul>
-    <li>در ساخت RAG نشان دادند که می‌توانند در پروژه‌ی AI‌محور مؤثر باشند: <span class="fill">[یک کار مشخص از هر کدام]</span>.</li>
+    <li>در ساخت RAG نشان دادند که می‌توانند در پروژه‌ی AI‌محور مؤثر باشند.</li>
     <li>داده‌ی شرکت را بهتر از هر کس دیگری می‌شناسند، و داده سوخت AI است.</li>
     <li>برای خودشان هم مسیر رشد روشنی ساخته می‌شود: از داشبوردسازی به مهندسی داده و AI.</li>
-    <li>کار BI متوقف نمی‌شود: در شروع، تقسیم زمان <span class="fill">[مثلاً ۵۰/۵۰]</span> و به‌تدریج انتقال داشبوردهای تکراری به گزارش‌دهی خودکار.</li>
+    <li>کار BI متوقف نمی‌شود: در شروع، تقسیم زمان بین BI و AI، و به‌تدریج انتقال داشبوردهای تکراری به گزارش‌دهی خودکار.</li>
   </ul>
   <aside class="note">قبل از این جلسه حتماً با خود این دو نفر صحبت کن و مطمئن شو مایل‌اند. و مهم‌تر: با سرپرست فعلی‌تان هم جداگانه حرف بزن تا غافلگیر نشود (توضیح بیشتر در NOTES.md).</aside>
 </section>
@@ -306,14 +300,13 @@
 <section class="slide">
   <p class="kicker">معیار موفقیت</p>
   <h2>در پایان ۹۰ روز، این‌ها را گزارش می‌کنیم</h2>
-  <table>
-    <tr><th>شاخص</th><th>امروز</th><th>هدف ۹۰ روزه</th></tr>
-    <tr><td>ساعت کاری آزادشده در ماه</td><td><span class="fill">[؟]</span></td><td><span class="fill">[مثلاً ۲۰۰ ساعت]</span></td></tr>
-    <tr><td>فرآیندهای بازطراحی یا خودکارشده</td><td><span class="fill">[؟]</span></td><td><span class="fill">[مثلاً ۳]</span></td></tr>
-    <tr><td>همکاران با استفاده‌ی هفتگی از ابزارهای داخلی AI</td><td><span class="fill">[؟]</span></td><td><span class="fill">[مثلاً ۵۰٪ کارمندان دفتری]</span></td></tr>
-    <tr><td>زمان چرخه‌ی یک فرآیند کلیدی</td><td><span class="fill">[؟]</span></td><td><span class="fill">[مثلاً ۳۰٪ کاهش]</span></td></tr>
-  </table>
-  <aside class="note">هدف‌ها را واقع‌بینانه انتخاب کن؛ بهتر است کمی بیشتر از قولت تحویل بدهی تا کمتر. ستون «امروز» را قبل از جلسه با هر عددی که داری پر کن، حتی تخمینی.</aside>
+  <div class="grid">
+    <div class="card"><h3>ساعت کاری آزادشده</h3><p>چند ساعت در ماه از کار تکراری آزاد شد.</p></div>
+    <div class="card"><h3>فرآیندهای بهبودیافته</h3><p>چند فرآیند بازطراحی یا خودکار شد.</p></div>
+    <div class="card"><h3>میزان استفاده</h3><p>چند نفر از همکاران هر هفته از ابزارهای داخلی AI استفاده می‌کنند.</p></div>
+    <div class="card"><h3>سرعت فرآیندها</h3><p>زمان انجام فرآیندهای کلیدی چقدر کوتاه‌تر شد.</p></div>
+  </div>
+  <aside class="note">پیام این اسلاید: نتیجه شفاف و قابل اندازه‌گیری گزارش می‌شود. اگر مدیر عدد هدف خواست، واقع‌بینانه جواب بده؛ بهتر است بیشتر از قولت تحویل بدهی تا کمتر. پروژه‌ی چک‌ها (حدود ۳۸۰ ساعت در ماه) نمونه‌ی خوبی از همین شاخص‌هاست.</aside>
 </section>
 
 <!-- ۱۳ -->
