@@ -110,6 +110,12 @@
     display: block; text-align: end; font-size: clamp(14px, 1.6vw, 19px); font-weight: 400;
     color: var(--muted); margin-top: 4px; letter-spacing: .02em;
   }
+  .ico {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px; border-radius: 12px; margin-bottom: 12px;
+    background: var(--accent-soft); color: var(--accent);
+  }
+  .ico svg { width: 26px; height: 26px; }
   .card.warn { border-color: var(--warn); background: var(--warn-soft); }
   .card.warn h3 { color: var(--warn); }
 
@@ -220,9 +226,9 @@
 <section class="slide">
   <h2>شواهد: آنچه همین حالا ساخته‌ایم</h2>
   <div class="grid g3">
-    <div class="card one"><h3>OCR چک: چک‌ها و رسیدهای واریزی بانکی خودکار خوانده و در ERP ثبت می‌شوند.</h3></div>
-    <div class="card one"><h3>RAG: دانش و اسناد پراکنده‌ی شرکت با یک سؤال ساده در دسترس همه است.</h3></div>
-    <div class="card one"><h3>MCP: سیستم‌های شرکت به AI وصل شده‌اند؛ می‌شود با زبان ساده از آن‌ها پرسید و روی آن‌ها اپلیکیشن و ایجنت هوشمند ساخت.</h3></div>
+    <div class="card one"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8h8"/><path d="M7 12h10"/><path d="M7 16h6"/></svg></span><h3>OCR چک: چک‌ها و رسیدهای واریزی بانکی خودکار خوانده و در ERP ثبت می‌شوند.</h3></div>
+    <div class="card one"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><h3>RAG: دانش و اسناد پراکنده‌ی شرکت با یک سؤال ساده در دسترس همه است.</h3></div>
+    <div class="card one"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></span><h3>MCP: سیستم‌های شرکت به AI وصل شده‌اند؛ می‌شود با زبان ساده از آن‌ها پرسید و روی آن‌ها اپلیکیشن و ایجنت هوشمند ساخت.</h3></div>
   </div>
   <aside class="note">سه پروژه را به همین ترتیب و کوتاه معرفی کن. اگر مدیر درباره‌ی اثر پروژه‌ی OCR چک پرسید، بگو کاری که قبلاً سه نفر انجام می‌دادند حالا یک نفر انجام می‌دهد. اگر امکانش هست یک دموی ۶۰ ثانیه‌ای از یکی از پروژه‌ها نشان بده.</aside>
 </section>
