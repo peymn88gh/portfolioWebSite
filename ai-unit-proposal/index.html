@@ -116,6 +116,14 @@
     background: var(--accent-soft); color: var(--accent);
   }
   .ico svg { width: 26px; height: 26px; }
+  .timeline li.proj::after { display: none; }
+  .timeline li.proj::before { top: 34px; }
+  .timeline .tl-ico {
+    position: absolute; inset-inline-start: -3px; top: 4px; width: 30px; height: 30px;
+    border-radius: 8px; background: var(--accent-soft); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .timeline .tl-ico svg { width: 18px; height: 18px; }
   .card.warn { border-color: var(--warn); background: var(--warn-soft); }
   .card.warn h3 { color: var(--warn); }
   .card.warn.one h3 { color: var(--ink); }
@@ -214,26 +222,16 @@
 <section class="slide">
   <h2>تا اینجا</h2>
   <ol class="timeline">
-    <li><span class="when">شروع</span><p>اولین پروژه‌های AI شکل گرفت.</p></li>
-    <li><span class="when">اجرا</span><p>پروژه‌ها با همکاری تیم BI به نتیجه رسید.</p></li>
+    <li class="proj"><span class="tl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8h8"/><path d="M7 12h10"/><path d="M7 16h6"/></svg></span><span class="when">OCR چک</span><p>چک‌ها و رسیدهای واریزی بانکی خودکار خوانده و در ERP ثبت می‌شوند.</p></li>
+    <li class="proj"><span class="tl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span class="when">RAG</span><p>دانش و اسناد پراکنده‌ی شرکت با یک سؤال ساده در دسترس همه است.</p></li>
+    <li class="proj"><span class="tl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></span><span class="when">MCP</span><p>سیستم‌های شرکت به AI وصل شده‌اند؛ می‌شود از آن‌ها پرسید و رویشان اپلیکیشن و ایجنت ساخت.</p></li>
     <li><span class="when">امروز</span><p>کارهای AI زیادی در صف داریم؛ بیشتر از ظرفیت فعلی.</p></li>
     <li class="next"><span class="when">هدف</span><p>ساختارمند کردن همین مسیر.</p></li>
   </ol>
-  <aside class="note">کوتاه و سریع از این اسلاید رد شو. حرف اصلی: کار AI جواب داده و حالا کارهای زیادی در صف داریم که با ظرفیت فعلی پیش نمی‌رود؛ قدم بعدی ساختارمند کردن آن است.</aside>
+  <aside class="note">این سه پروژه با همکاری تیم BI ساخته شده‌اند؛ این را شفاهی بگو. اگر مدیر درباره‌ی اثر OCR چک پرسید: کاری که قبلاً سه نفر انجام می‌دادند حالا یک نفر انجام می‌دهد. حرف اصلی اسلاید: کار AI جواب داده و حالا کارهای زیادی در صف داریم که با ظرفیت فعلی پیش نمی‌رود؛ قدم بعدی ساختارمند کردن آن است. اگر امکانش هست یک دموی ۶۰ ثانیه‌ای از یکی از پروژه‌ها نشان بده.</aside>
 </section>
 
 <!-- ۴ -->
-<section class="slide">
-  <h2>شواهد: آنچه همین حالا ساخته‌ایم</h2>
-  <div class="grid g3">
-    <div class="card one"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8h8"/><path d="M7 12h10"/><path d="M7 16h6"/></svg></span><h3>OCR چک: چک‌ها و رسیدهای واریزی بانکی خودکار خوانده و در ERP ثبت می‌شوند.</h3></div>
-    <div class="card one"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><h3>RAG: دانش و اسناد پراکنده‌ی شرکت با یک سؤال ساده در دسترس همه است.</h3></div>
-    <div class="card one"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></span><h3>MCP: سیستم‌های شرکت به AI وصل شده‌اند؛ می‌شود با زبان ساده از آن‌ها پرسید و روی آن‌ها اپلیکیشن و ایجنت هوشمند ساخت.</h3></div>
-  </div>
-  <aside class="note">سه پروژه را به همین ترتیب و کوتاه معرفی کن. اگر مدیر درباره‌ی اثر پروژه‌ی OCR چک پرسید، بگو کاری که قبلاً سه نفر انجام می‌دادند حالا یک نفر انجام می‌دهد. اگر امکانش هست یک دموی ۶۰ ثانیه‌ای از یکی از پروژه‌ها نشان بده.</aside>
-</section>
-
-<!-- ۵ -->
 <section class="slide">
   <h2>اگر وضع فعلی ادامه پیدا کند</h2>
   <div class="grid g2">
@@ -245,7 +243,7 @@
   <aside class="note">ریسک داده را جدی مطرح کن؛ برای مدیران معمولاً قانع‌کننده‌تر از وعده‌ی بهره‌وری است. «وابستگی به یک نفر» را صادقانه بگو؛ نشان می‌دهد دنبال جایگاه شخصی نیستی و به پایداری فکر می‌کنی.</aside>
 </section>
 
-<!-- ۶ -->
+<!-- ۵ -->
 <section class="slide">
   <h2>ریشه‌ی مسئله</h2>
   <p class="quote">شرکت ما هنوز AI CoE ندارد.<small class="expand" dir="ltr">AI Center of Excellence</small></p>
@@ -258,7 +256,7 @@
   <aside class="note">این اسلاید پل بین مسئله و راه‌حل است. حرف اصلی: کمبود ابزار یا آدم نیست؛ چیزی که نداریم، یک «مرکز تعالی هوش مصنوعی» (AI Center of Excellence) است: همان واحدی که سازمان‌های پیشرو برای پیشبرد AI می‌سازند. اسلاید بعد پیشنهاد می‌کند این مرکز را در اندازه‌ی شرکت خودمان بسازیم.</aside>
 </section>
 
-<!-- ۷ -->
+<!-- ۶ -->
 <section class="slide">
   <h2>پیشنهاد</h2>
   <p class="lead">تشکیل یک تیم AI مشخص زیر توسعه‌ی سازمانی، با همان آدم‌هایی که این مسیر را تا اینجا آورده‌اند:</p>
@@ -271,7 +269,7 @@
   <aside class="note">اینجا درخواستت را روشن ولی بی‌ادعا مطرح کن: «پیشنهادم این است که مسئولیت این تیم با من باشد.» از واژه‌هایی مثل مدیر، رئیس یا زیردست استفاده نکن؛ تأکید روی «تیم» و «با هم» است. اگر مدیر درباره‌ی ترکیب دقیق تیم یا تقسیم وقت همکاران BI پرسید، بگو با هماهنگی سرپرست فعلی و متناسب با نیاز شرکت تنظیم می‌شود.</aside>
 </section>
 
-<!-- ۸ -->
+<!-- ۷ -->
 <section class="slide">
   <h2>مأموریت واحد</h2>
   <div class="grid g3">
@@ -284,7 +282,7 @@
   <aside class="note">ستون ۱ را پررنگ کن: خودکارسازی یک فرآیند بد فقط آن را سریع‌تر بد می‌کند. همین تفاوت این واحد را از «تیم فنی» جدا می‌کند و نشان می‌دهد چرا جایش زیر OD است.</aside>
 </section>
 
-<!-- ۹ -->
+<!-- ۸ -->
 <section class="slide">
   <h2>ارزش اصلی واحد</h2>
   <p class="lead">حذف کار تکراری فقط نقطه‌ی شروع است؛ هدف اصلی، سازمانی چابک‌تر، هوشمندتر و آماده‌تر برای AI است.</p>
@@ -297,7 +295,7 @@
   <aside class="note">پیام این اسلاید: این واحد فقط برای حذف کارهای تکراری نیست. کار تکراری را حذف می‌کنیم تا وقت و ذهن آدم‌ها آزاد شود، اما ارزش اصلی در این است که کل شرکت چابک‌تر و هوشمندتر شود و بتواند حرکت‌های استراتژیک بزرگ‌تری بکند. اگر ایده‌ای از یک حرکت استراتژیک داری که با AI ممکن می‌شود (مثلاً پیش‌بینی تقاضا برای خرید هوشمند، یا شناخت سودآورترین مشتریان)، همین‌جا یک مثال بزن.</aside>
 </section>
 
-<!-- ۱۰ -->
+<!-- ۹ -->
 <section class="slide">
   <p class="kicker">معیار موفقیت</p>
   <h2>در پایان ۹۰ روز، این‌ها را گزارش می‌کنیم</h2>
@@ -310,7 +308,7 @@
   <aside class="note">پیام این اسلاید: نتیجه شفاف و قابل اندازه‌گیری گزارش می‌شود. اگر مدیر عدد هدف خواست، واقع‌بینانه جواب بده؛ بهتر است بیشتر از قولت تحویل بدهی تا کمتر. پروژه‌ی چک‌ها (حدود ۳۸۰ ساعت در ماه) نمونه‌ی خوبی از همین شاخص‌هاست.</aside>
 </section>
 
-<!-- ۱۱ -->
+<!-- ۱۰ -->
 <section class="slide">
   <h1>بازی جدید،<br>ساختار تازه می‌خواهد.</h1>
   <p class="lead">ممنون از وقتی که گذاشتید.</p>
