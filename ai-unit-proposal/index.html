@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>بازی عوض شده</title>
+<meta name="description" content="پیشنهاد تشکیل واحد بهبود فرآیندها و هوش مصنوعی">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f4ef;
+    --surface: #ffffff;
+    --ink: #1c1d21;
+    --muted: #5d6170;
+    --line: #e2ded4;
+    --accent: #0f766e;
+    --accent-soft: #d8efec;
+    --warn: #b45309;
+    --warn-soft: #fbecd9;
+    --fill: #7c3aed;
+    --fill-soft: #ede5fc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121417; --surface: #1b1e23; --ink: #ecebe7; --muted: #a2a6b1; --line: #2d3139;
+      --accent: #2dd4bf; --accent-soft: #123a37; --warn: #f59e0b; --warn-soft: #3a2a10;
+      --fill: #a78bfa; --fill-soft: #2a2140;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121417; --surface: #1b1e23; --ink: #ecebe7; --muted: #a2a6b1; --line: #2d3139;
+    --accent: #2dd4bf; --accent-soft: #123a37; --warn: #f59e0b; --warn-soft: #3a2a10;
+    --fill: #a78bfa; --fill-soft: #2a2140;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font-family: "Vazirmatn", Tahoma, sans-serif;
+    line-height: 1.75; overflow: hidden;
+  }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: none; flex-direction: column; justify-content: safe center;
+    padding: clamp(24px, 6vh, 72px) clamp(16px, 7vw, 120px) 80px;
+    overflow-y: auto;
+  }
+  .slide.active { display: flex; animation: in .35s ease; }
+  @keyframes in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  .kicker { color: var(--accent); font-weight: 600; font-size: clamp(13px, 1.6vw, 17px); margin: 0 0 8px; }
+  h1 { font-size: clamp(32px, 6vw, 72px); font-weight: 800; line-height: 1.3; margin: 0 0 16px; }
+  h2 { font-size: clamp(24px, 3.6vw, 44px); font-weight: 800; line-height: 1.4; margin: 0 0 24px; }
+  h3 { font-size: clamp(16px, 1.8vw, 21px); font-weight: 600; margin: 0 0 6px; }
+  p, li { font-size: clamp(15px, 1.7vw, 20px); }
+  .lead { font-size: clamp(17px, 2.2vw, 26px); color: var(--muted); max-width: 46ch; }
+  ul { padding-inline-start: 1.2em; margin: 0; }
+  li { margin-bottom: 8px; }
+  li::marker { color: var(--accent); }
+  .muted { color: var(--muted); }
+
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 18px 20px;
+  }
+  .card p { margin: 0; font-size: clamp(14px, 1.45vw, 17px); color: var(--muted); }
+  .card .num { font-size: clamp(26px, 3.4vw, 40px); font-weight: 800; color: var(--accent); line-height: 1.2; }
+  .card.warn { border-color: var(--warn); background: var(--warn-soft); }
+  .card.warn h3 { color: var(--warn); }
+
+  .quote {
+    font-size: clamp(30px, 5.5vw, 64px); font-weight: 800; line-height: 1.4;
+    border-inline-start: 6px solid var(--accent); padding-inline-start: 24px; margin: 0 0 28px;
+  }
+
+  /* placeholders the presenter must fill in with real numbers */
+  .fill {
+    background: var(--fill-soft); color: var(--fill); border-radius: 6px;
+    padding: 0 6px; font-weight: 600; white-space: nowrap;
+  }
+
+  .org { display: flex; flex-direction: column; align-items: center; gap: 0; margin: 8px 0 20px; }
+  .node {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 10px 22px; text-align: center; min-width: 200px;
+  }
+  .node small { display: block; color: var(--muted); font-size: 13px; }
+  .node.me { border: 2px solid var(--accent); background: var(--accent-soft); }
+  .vline { width: 2px; height: 22px; background: var(--line); }
+  .row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+  .flow { display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch; margin-bottom: 20px; }
+  .step {
+    flex: 1 1 130px; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 12px; padding: 14px; position: relative;
+  }
+  .step b { color: var(--accent); display: block; font-size: 13px; }
+  .step span { font-weight: 600; }
+
+  .phase { border-top: 4px solid var(--accent); }
+  .phase:nth-child(2) { border-top-color: var(--warn); }
+  .phase:nth-child(3) { border-top-color: var(--fill); }
+
+  table { border-collapse: collapse; width: 100%; font-size: clamp(14px, 1.5vw, 18px); }
+  th, td { text-align: start; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+
+  .ask { counter-reset: a; list-style: none; padding: 0; }
+  .ask li {
+    counter-increment: a; background: var(--surface); border: 1px solid var(--line);
+    border-radius: 12px; padding: 14px 18px 14px 18px; margin-bottom: 12px;
+    display: flex; gap: 14px; align-items: baseline;
+  }
+  .ask li::before {
+    content: counter(a, persian); font-weight: 800; color: var(--accent); font-size: 1.3em;
+  }
+
+  /* chrome */
+  .bar {
+    position: fixed; bottom: 0; inset-inline: 0; height: 56px;
+    display: flex; align-items: center; gap: 12px; padding: 0 16px;
+    background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(6px);
+    border-top: 1px solid var(--line); z-index: 5;
+  }
+  .bar button {
+    font: inherit; background: var(--surface); color: var(--ink); border: 1px solid var(--line);
+    border-radius: 8px; padding: 4px 12px; cursor: pointer;
+  }
+  .progress { flex: 1; height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
+  .progress i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .3s; }
+  .count { color: var(--muted); font-size: 14px; min-width: 56px; text-align: center; }
+
+  .notes {
+    position: fixed; bottom: 56px; inset-inline: 0; max-height: 40vh; overflow-y: auto;
+    background: var(--surface); border-top: 2px solid var(--accent);
+    padding: 16px clamp(16px, 7vw, 120px); display: none; z-index: 4;
+    font-size: 16px; color: var(--muted);
+  }
+  .notes.show { display: block; }
+  .notes b { color: var(--ink); }
+  aside.note { display: none; }
+
+  @media print {
+    body { overflow: visible; }
+    .slide { position: relative; display: flex !important; page-break-after: always; min-height: 100vh; animation: none; }
+    .bar, .notes { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ۱ -->
+<section class="slide">
+  <p class="kicker">پیشنهاد به مدیریت توسعه‌ی سازمانی</p>
+  <h1>بازی عوض شده.<br>آرایش ما چطور؟</h1>
+  <p class="lead">پیشنهاد تشکیل واحد کوچک و چابک «بهبود فرآیندها و هوش مصنوعی»</p>
+  <p class="muted"><span class="fill">[نام شما]</span> · <span class="fill">[تاریخ جلسه]</span></p>
+  <aside class="note">هدف این جلسه گرفتن یک تصمیم است، نه فقط ارائه‌ی اطلاعات. از همان اول بگو در پایان ارائه یک درخواست مشخص داری، تا مخاطب با این نگاه گوش بدهد.</aside>
+</section>
+
+<!-- ۲ -->
+<section class="slide">
+  <p class="kicker">جمله‌ای که این روزها زیاد می‌شنویم</p>
+  <p class="quote">«بازی داره عوض می‌شه.»</p>
+  <h2>موافقم. ولی وقتی قانون بازی عوض می‌شود، مربی آرایش تیم را هم عوض می‌کند.</h2>
+  <p class="lead">امروز با همان چیدمان دیروز داریم بازیِ تازه‌ای انجام می‌دهیم.</p>
+  <aside class="note">با جمله‌ی خود مدیرعامل شروع کن. این ارائه نقد نیست؛ ادامه‌ی منطقی همان حرفی است که خودش می‌زند. لحن: «شما درست می‌گویید، و قدم بعدی این است.»</aside>
+</section>
+
+<!-- ۳ -->
+<section class="slide">
+  <p class="kicker">وضعیت فعلی</p>
+  <h2>کار هوش مصنوعی انجام می‌شود، ولی جایی در سازمان ندارد</h2>
+  <div class="grid">
+    <div class="card"><h3>عنوان‌ها قدیمی‌اند</h3><p>من با عنوان «توسعه‌دهنده‌ی فول‌استک» استخدام شدم و عملاً تمام وقتم روی AI است.</p></div>
+    <div class="card"><h3>کار جانبی</h3><p>همکاران BI بین داشبوردها، وقت قرضی به پروژه‌های AI می‌دهند.</p></div>
+    <div class="card"><h3>نه صاحبی، نه اولویتی</h3><p>هیچ‌کس رسماً مسئول اولویت‌بندی و پیش‌بردن پذیرش AI در واحدها نیست.</p></div>
+    <div class="card"><h3>نه معیاری</h3><p>نمی‌دانیم AI دقیقاً چقدر زمان و هزینه آزاد کرده و قرار است بکند.</p></div>
+  </div>
+  <aside class="note">تمرکز روی «ساختار» باشد، نه روی آدم‌ها. هیچ‌کس، به‌خصوص سرپرست فعلی، نباید احساس کند مقصر معرفی شده است.</aside>
+</section>
+
+<!-- ۴ -->
+<section class="slide">
+  <p class="kicker">شواهد: آنچه همین حالا ساخته‌ایم</p>
+  <h2>این پیشنهاد روی کارِ انجام‌شده بنا شده است، نه روی وعده</h2>
+  <div class="grid">
+    <div class="card"><div class="num"><span class="fill">[N]</span></div><h3>سند در پایگاه دانش (RAG)</h3><p>دانش پراکنده‌ی شرکت حالا قابل پرسیدن است.</p></div>
+    <div class="card"><div class="num"><span class="fill">[N]</span></div><h3>سیستم متصل با MCP</h3><p><span class="fill">[مثلاً ERP، انبار، فروش]</span> با زبان طبیعی در دسترس است.</p></div>
+    <div class="card"><div class="num"><span class="fill">[N]</span></div><h3>کاربر فعال</h3><p>در <span class="fill">[N]</span> واحد مختلف.</p></div>
+    <div class="card"><div class="num"><span class="fill">[N] ساعت</span></div><h3>صرفه‌جویی ماهانه (تخمینی)</h3><p>در کارهایی مثل <span class="fill">[یک مثال واقعی]</span>.</p></div>
+  </div>
+  <aside class="note">مهم‌ترین اسلاید. فقط عدد واقعی بگذار؛ اگر عددی نداری، یک «قبل و بعد» واقعی از یک همکار تعریف کن (مثلاً: «فلانی برای پیدا کردن قرارداد ۲۰ دقیقه وقت می‌گذاشت، الان ۳۰ ثانیه»). اگر امکانش هست یک دموی ۶۰ ثانیه‌ای زنده نشان بده.</aside>
+</section>
+
+<!-- ۵ -->
+<section class="slide">
+  <p class="kicker">هزینه‌ی ادامه‌ی وضع فعلی</p>
+  <h2>اگر کاری نکنیم چه می‌شود؟</h2>
+  <div class="grid">
+    <div class="card warn"><h3>پایلوت‌هایی که به عملیات نمی‌رسند</h3><p>پروژه‌ها جذاب شروع می‌شوند و بدون صاحب، در مرحله‌ی دمو می‌مانند.</p></div>
+    <div class="card warn"><h3>AI پنهان و پرریسک</h3><p>همکاران خودشان سراغ ChatGPT و ابزارهای عمومی می‌روند و داده‌ی شرکت را بیرون می‌برند.</p></div>
+    <div class="card warn"><h3>اولویت با صدای بلندتر</h3><p>به‌جای اثر بیشتر، هر واحدی که بیشتر پیگیری کند جلو می‌افتد.</p></div>
+    <div class="card warn"><h3>وابستگی به یک نفر</h3><p>دانش فنی در ذهن یک نفر است و جایی ثبت و منتقل نمی‌شود.</p></div>
+  </div>
+  <aside class="note">ریسک داده را جدی مطرح کن؛ برای مدیران معمولاً قانع‌کننده‌تر از وعده‌ی بهره‌وری است. «وابستگی به یک نفر» را صادقانه بگو؛ نشان می‌دهد دنبال جایگاه شخصی نیستی و به پایداری فکر می‌کنی.</aside>
+</section>
+
+<!-- ۶ -->
+<section class="slide">
+  <p class="kicker">ریشه‌ی مسئله</p>
+  <p class="quote">AI ابزار نیست؛ یک قابلیت سازمانی است.</p>
+  <h2>و هر قابلیت سازمانی چهار چیز لازم دارد:</h2>
+  <div class="grid">
+    <div class="card"><h3>مأموریت روشن</h3><p>چه چیزی را باید عوض کنیم؟</p></div>
+    <div class="card"><h3>صاحب مشخص</h3><p>چه کسی پاسخ‌گوست؟</p></div>
+    <div class="card"><h3>ریتم کاری</h3><p>چطور درخواست‌ها می‌آیند و اولویت می‌گیرند؟</p></div>
+    <div class="card"><h3>معیار</h3><p>از کجا بفهمیم موفق بوده‌ایم؟</p></div>
+  </div>
+  <aside class="note">این اسلاید پل بین مسئله و راه‌حل است. حرف اصلی: مشکل کمبود ابزار یا آدم نیست؛ مشکل این است که هیچ‌کدام از این چهار مورد امروز تعریف نشده است.</aside>
+</section>
+
+<!-- ۷ -->
+<section class="slide">
+  <p class="kicker">پیشنهاد</p>
+  <h2>واحد «بهبود فرآیندها و هوش مصنوعی»</h2>
+  <div class="org">
+    <div class="node">مدیر توسعه‌ی سازمانی<small>حامی و تصمیم‌گیر</small></div>
+    <div class="vline"></div>
+    <div class="node me">سرپرست واحد<small><span class="fill">[نام شما]</span></small></div>
+    <div class="vline"></div>
+    <div class="row">
+      <div class="node">مهندس داده و AI<small><span class="fill">[همکار BI ۱]</span></small></div>
+      <div class="node">مهندس داده و AI<small><span class="fill">[همکار BI ۲]</span></small></div>
+    </div>
+  </div>
+  <p class="lead">سه نفر، از نیروهای فعلی، بدون استخدام جدید. واحدی کوچک که می‌شود سریع تشکیلش داد و اگر لازم شد سریع هم جمعش کرد.</p>
+  <aside class="note">«واحد» را کوچک و غیربوروکراتیک نشان بده. این شرکت فضای صمیمی دارد و ساختار سنگین نمی‌خواهد. اگر انتقال کامل دو همکار BI حساس است، از همین‌جا بگو گزینه‌ی گزارش‌دهی دوگانه یا نیمه‌وقت هم قابل بحث است.</aside>
+</section>
+
+<!-- ۸ -->
+<section class="slide">
+  <p class="kicker">مأموریت واحد</p>
+  <h2>کمتر کار تکراری، تصمیم سریع‌تر، شرکت چابک‌تر</h2>
+  <div class="grid">
+    <div class="card"><h3>۱. بازطراحی فرآیند</h3><p>با هر واحد فرآیندهایش را می‌بینیم و قبل از خودکارسازی، ساده‌شان می‌کنیم.</p></div>
+    <div class="card"><h3>۲. خودکارسازی و عامل‌ها</h3><p>عامل‌های AI و اتصال‌های MCP برای کارهای تکراری مالی، فروش و انبار.</p></div>
+    <div class="card"><h3>۳. دانش سازمانی</h3><p>توسعه‌ی RAG تا هر همکار به دانش شرکت دسترسی فوری داشته باشد.</p></div>
+    <div class="card"><h3>۴. داده</h3><p>با تیم BI، داده را برای AI آماده و قابل اعتماد می‌کنیم.</p></div>
+    <div class="card"><h3>۵. توانمندسازی</h3><p>آموزش کوتاه و یک «سفیر AI» در هر واحد.</p></div>
+    <div class="card"><h3>۶. قواعد ساده</h3><p>چه داده‌ای کجا برود، با کدام ابزار. یک صفحه، نه یک کتاب.</p></div>
+  </div>
+  <aside class="note">ستون ۱ را پررنگ کن: خودکارسازی یک فرآیند بد فقط آن را سریع‌تر بد می‌کند. همین تفاوت این واحد را از «تیم فنی» جدا می‌کند و نشان می‌دهد چرا جایش زیر OD است.</aside>
+</section>
+
+<!-- ۹ -->
+<section class="slide">
+  <p class="kicker">چرا زیر توسعه‌ی سازمانی؟</p>
+  <p class="quote">پذیرش AI حدوداً ۲۰٪ فناوری است و ۸۰٪ آدم و فرآیند.</p>
+  <ul>
+    <li>توسعه‌ی سازمانی همین حالا مسئول تغییر در شرکت است؛ AI بزرگ‌ترین تغییر پیش روست.</li>
+    <li>اگر واحد زیر IT باشد، کارها به «پروژه‌ی فنی» تبدیل می‌شوند. زیر OD به «تغییر شیوه‌ی کار» تبدیل می‌شوند.</li>
+    <li>واحدهای دیگر OD را شریک می‌بینند، نه سرویس‌دهنده‌ی فنی.</li>
+  </ul>
+  <aside class="note">این اسلاید به مدیر OD نشان می‌دهد که این پیشنهاد جایگاه خود او را هم تقویت می‌کند. «۲۰/۸۰» یک قاعده‌ی سرانگشتی رایج است، نه یک آمار دقیق؛ همین‌طور هم مطرحش کن.</aside>
+</section>
+
+<!-- ۱۰ -->
+<section class="slide">
+  <p class="kicker">چرا من</p>
+  <h2>این نقش را عملاً انجام می‌دهم؛ فقط هنوز رسمی نشده است</h2>
+  <div class="grid">
+    <div class="card"><h3>پل بین فن و کسب‌وکار</h3><p>هم سیستم می‌سازم، هم با واحدها درباره‌ی مشکل واقعی‌شان حرف می‌زنم.</p></div>
+    <div class="card"><h3>سابقه‌ی اجرا</h3><p>RAG و اتصال MCP را از صفر تا استفاده‌ی واقعی پیش بردم.</p></div>
+    <div class="card"><h3>شناخت از داخل</h3><p>آدم‌ها، داده‌ها و سیستم‌های شرکت را می‌شناسم؛ زمان یادگیری صفر است.</p></div>
+    <div class="card"><h3>هدایت تیم</h3><p>در پروژه‌ی RAG، کار دو همکار BI را هماهنگ کردم و نتیجه گرفتیم.</p></div>
+  </div>
+  <aside class="note">با اعتمادبه‌نفس و بدون اغراق. از واژه‌ی «حق من است» استفاده نکن؛ حرف اصلی این است: «این نقش وجود دارد و من همین حالا انجامش می‌دهم. رسمی کردنش آن را پایدار و پاسخ‌گو می‌کند.» اگر کار هماهنگی را واقعاً تو انجام داده‌ای، یک مثال مشخص بزن.</aside>
+</section>
+
+<!-- ۱۱ -->
+<section class="slide">
+  <p class="kicker">تیم</p>
+  <h2>چرا این دو همکار</h2>
+  <ul>
+    <li>در ساخت RAG نشان دادند که می‌توانند در پروژه‌ی AI‌محور مؤثر باشند: <span class="fill">[یک کار مشخص از هر کدام]</span>.</li>
+    <li>داده‌ی شرکت را بهتر از هر کس دیگری می‌شناسند، و داده سوخت AI است.</li>
+    <li>برای خودشان هم مسیر رشد روشنی ساخته می‌شود: از داشبوردسازی به مهندسی داده و AI.</li>
+    <li>کار BI متوقف نمی‌شود: در شروع، تقسیم زمان <span class="fill">[مثلاً ۵۰/۵۰]</span> و به‌تدریج انتقال داشبوردهای تکراری به گزارش‌دهی خودکار.</li>
+  </ul>
+  <aside class="note">قبل از این جلسه حتماً با خود این دو نفر صحبت کن و مطمئن شو مایل‌اند. و مهم‌تر: با سرپرست فعلی‌تان هم جداگانه حرف بزن تا غافلگیر نشود (توضیح بیشتر در NOTES.md).</aside>
+</section>
+
+<!-- ۱۲ -->
+<section class="slide">
+  <p class="kicker">شیوه‌ی کار</p>
+  <h2>ریتمی ساده و قابل دیدن</h2>
+  <div class="flow">
+    <div class="step"><b>۱</b><span>دریافت درخواست</span><br><small class="muted">از هر واحد، با یک فرم ساده</small></div>
+    <div class="step"><b>۲</b><span>اولویت‌بندی</span><br><small class="muted">ارزش × سادگی اجرا</small></div>
+    <div class="step"><b>۳</b><span>اسپرینت ۲ هفته‌ای</span><br><small class="muted">کوچک بساز، زود تحویل بده</small></div>
+    <div class="step"><b>۴</b><span>اندازه‌گیری</span><br><small class="muted">قبل و بعد، با عدد</small></div>
+    <div class="step"><b>۵</b><span>گسترش</span><br><small class="muted">آنچه جواب داد به واحدهای دیگر</small></div>
+  </div>
+  <p class="lead">هر ماه یک گزارش یک‌صفحه‌ای برای مدیریت: چه ساختیم، چقدر وقت آزاد شد، قدم بعدی چیست.</p>
+  <aside class="note">مدیران از «جعبه‌ی سیاه» می‌ترسند. گزارش ماهانه‌ی یک‌صفحه‌ای نشان می‌دهد شفاف و پاسخ‌گو هستی.</aside>
+</section>
+
+<!-- ۱۳ -->
+<section class="slide">
+  <p class="kicker">برنامه‌ی ۹۰ روزه</p>
+  <h2>یک دوره‌ی آزمایشی با نقطه‌ی تصمیم روشن</h2>
+  <div class="grid">
+    <div class="card phase"><h3>روز ۱ تا ۳۰: شناخت</h3><p>جلسه با هر واحد، فهرست ۱۰ فرصت اول، قواعد یک‌صفحه‌ای استفاده‌ی امن از AI.</p></div>
+    <div class="card phase"><h3>روز ۳۱ تا ۶۰: تحویل</h3><p>۲ تا ۳ پروژه‌ی زودبازده در <span class="fill">[مالی / فروش / انبار]</span>. RAG برای همه‌ی شرکت.</p></div>
+    <div class="card phase"><h3>روز ۶۱ تا ۹۰: اثبات</h3><p>اندازه‌گیری نتایج، آموزش سفیران AI، گزارش به مدیریت و تصمیم درباره‌ی ادامه.</p></div>
+  </div>
+  <aside class="note">دوره‌ی آزمایشی ریسک تصمیم را برای مدیر کم می‌کند. «بله» گفتن به ۹۰ روز خیلی راحت‌تر از «بله» گفتن به یک ساختار دائمی است.</aside>
+</section>
+
+<!-- ۱۴ -->
+<section class="slide">
+  <p class="kicker">معیار موفقیت</p>
+  <h2>در پایان ۹۰ روز، این‌ها را گزارش می‌کنیم</h2>
+  <table>
+    <tr><th>شاخص</th><th>امروز</th><th>هدف ۹۰ روزه</th></tr>
+    <tr><td>ساعت کاری آزادشده در ماه</td><td><span class="fill">[؟]</span></td><td><span class="fill">[مثلاً ۲۰۰ ساعت]</span></td></tr>
+    <tr><td>فرآیندهای بازطراحی یا خودکارشده</td><td><span class="fill">[؟]</span></td><td><span class="fill">[مثلاً ۳]</span></td></tr>
+    <tr><td>همکاران با استفاده‌ی هفتگی از ابزارهای داخلی AI</td><td><span class="fill">[؟]</span></td><td><span class="fill">[مثلاً ۵۰٪ کارمندان دفتری]</span></td></tr>
+    <tr><td>زمان چرخه‌ی یک فرآیند کلیدی</td><td><span class="fill">[؟]</span></td><td><span class="fill">[مثلاً ۳۰٪ کاهش]</span></td></tr>
+  </table>
+  <aside class="note">هدف‌ها را واقع‌بینانه انتخاب کن؛ بهتر است کمی بیشتر از قولت تحویل بدهی تا کمتر. ستون «امروز» را قبل از جلسه با هر عددی که داری پر کن، حتی تخمینی.</aside>
+</section>
+
+<!-- ۱۵ -->
+<section class="slide">
+  <p class="kicker">نگرانی‌های احتمالی</p>
+  <h2>سؤال‌هایی که احتمالاً پیش می‌آید</h2>
+  <table>
+    <tr><th>نگرانی</th><th>پاسخ</th></tr>
+    <tr><td>«شرکت کوچک است، واحد جدید لازم نیست.»</td><td>سه نفر از نیروهای فعلی، بدون استخدام و بدون لایه‌ی اضافه. فقط کاری که الان پراکنده انجام می‌شود صاحب پیدا می‌کند.</td></tr>
+    <tr><td>«داشبوردها و کار BI عقب می‌افتد.»</td><td>تقسیم زمان در شروع، و خودکارسازی گزارش‌های تکراری که بار BI را کم می‌کند.</td></tr>
+    <tr><td>«اگر نتیجه نداد چه؟»</td><td>بازبینی در روز ۹۰ با شاخص‌های مشخص. اگر نتیجه نداد، به ساختار قبلی برمی‌گردیم.</td></tr>
+    <tr><td>«هزینه‌اش چقدر است؟»</td><td>عمدتاً ترمیم عنوان و جبران خدمت سه نفر، در مقابل ارزش ساعت‌های آزادشده.</td></tr>
+  </table>
+  <aside class="note">پیش‌دستی کردن در پاسخ به اعتراض‌ها نشان می‌دهد پخته فکر کرده‌ای. اگر مدیر سؤال دیگری پرسید که جوابش را نمی‌دانی، بگو «بررسی می‌کنم و تا فلان روز جواب می‌دهم» و حتماً پیگیری کن.</aside>
+</section>
+
+<!-- ۱۶ -->
+<section class="slide">
+  <p class="kicker">درخواست</p>
+  <h2>برای شروع، چهار تصمیم لازم است</h2>
+  <ol class="ask">
+    <li><span>تشکیل واحد «بهبود فرآیندها و هوش مصنوعی» زیر توسعه‌ی سازمانی، با دوره‌ی آزمایشی ۹۰ روزه.</span></li>
+    <li><span>سپردن سرپرستی واحد به من، با عنوان رسمی و جبران خدمت متناسب با مسئولیت جدید.</span></li>
+    <li><span>پیوستن دو همکار BI به واحد (کامل یا با تقسیم زمان) و هماهنگی با سرپرست فعلی.</span></li>
+    <li><span>یک جلسه‌ی ماهانه‌ی کوتاه با مدیریت برای مرور نتایج و اولویت‌ها.</span></li>
+  </ol>
+  <aside class="note">اینجا ساکت شو و بگذار مدیر جواب بدهد. اگر گفت «فکر می‌کنم»، بپرس: «چه چیزی لازم دارید تا تصمیم بگیرید، و کِی دوباره صحبت کنیم؟» و یک تاریخ مشخص بگیر. درباره‌ی رقم حقوق در همین جلسه چانه نزن؛ اول جایگاه تصویب شود، رقم در جلسه‌ی جداگانه.</aside>
+</section>
+
+<!-- ۱۷ -->
+<section class="slide">
+  <h1>بازی عوض شده.<br>بیایید آرایش را هم عوض کنیم.</h1>
+  <p class="lead">ممنون از وقتی که گذاشتید.</p>
+  <aside class="note">جمع‌بندی کوتاه. پیشنهاد کن بعد از جلسه یک خلاصه‌ی یک‌صفحه‌ای ایمیل کنی؛ مدیر احتمالاً باید آن را به مدیرعامل نشان بدهد.</aside>
+</section>
+
+<div class="notes" id="notes"></div>
+<div class="bar">
+  <button id="prev" aria-label="قبلی">→</button>
+  <button id="next" aria-label="بعدی">←</button>
+  <span class="count" id="count"></span>
+  <div class="progress"><i id="prog"></i></div>
+  <button id="noteBtn" title="یادداشت‌های ارائه (N)">یادداشت</button>
+  <button id="themeBtn" title="تغییر تم">◐</button>
+</div>
+
+<script>
+  const slides = [...document.querySelectorAll('.slide')];
+  const notes = document.getElementById('notes');
+  const fa = n => n.toLocaleString('fa-IR');
+  let i = 0;
+  try { i = Math.min(+(location.hash.slice(1) || 1) - 1, slides.length - 1) || 0; } catch (e) {}
+
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle('active', k === i));
+    document.getElementById('count').textContent = fa(i + 1) + ' / ' + fa(slides.length);
+    document.getElementById('prog').style.width = ((i + 1) / slides.length * 100) + '%';
+    const note = slides[i].querySelector('aside.note');
+    notes.innerHTML = note ? '<b>یادداشت ارائه:</b> ' + note.innerHTML : '';
+    history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  document.getElementById('next').onclick = () => show(i + 1);
+  document.getElementById('prev').onclick = () => show(i - 1);
+  document.getElementById('noteBtn').onclick = () => notes.classList.toggle('show');
+  document.getElementById('themeBtn').onclick = () => {
+    const root = document.documentElement;
+    const dark = root.dataset.theme
+      ? root.dataset.theme === 'dark'
+      : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+  };
+
+  // RTL deck: left arrow moves forward
+  document.addEventListener('keydown', e => {
+    if (['ArrowLeft', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (['ArrowRight', 'PageUp'].includes(e.key)) { e.preventDefault(); show(i - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+    if (e.key.toLowerCase() === 'n') notes.classList.toggle('show');
+  });
+
+  let x0 = null;
+  document.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) show(dx > 0 ? i + 1 : i - 1);
+    x0 = null;
+  });
+
+  show(i);
+</script>
+</body>
+</html>
