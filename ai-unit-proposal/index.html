@@ -64,6 +64,7 @@
   .muted { color: var(--muted); }
 
   .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  @media (min-width: 900px) { .grid.g3 { grid-template-columns: repeat(3, 1fr); } }
   .card {
     background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
     padding: 18px 20px;
@@ -242,18 +243,16 @@
 <section class="slide">
   <p class="kicker">پیشنهاد</p>
   <h2>واحد «بهبود فرآیندها و هوش مصنوعی»</h2>
-  <div class="org">
-    <div class="node">مدیر توسعه‌ی سازمانی<small>حامی و تصمیم‌گیر</small></div>
-    <div class="vline"></div>
-    <div class="node me">سرپرست واحد<small><span class="fill">[نام شما]</span></small></div>
-    <div class="vline"></div>
-    <div class="row">
-      <div class="node">مهندس داده و AI<small><span class="fill">[همکار BI ۱]</span></small></div>
-      <div class="node">مهندس داده و AI<small><span class="fill">[همکار BI ۲]</span></small></div>
-    </div>
+  <p class="lead">برای اینکه این قابلیت در شرکت پایدار شود، چند چیز باید سر جایش باشد:</p>
+  <div class="grid g3">
+    <div class="card"><h3>صاحب مشخص</h3><p>یک نفر باید رسماً پاسخ‌گوی پیشبرد AI و بهبود فرآیندها در کل شرکت باشد.</p></div>
+    <div class="card"><h3>جایگاه روشن</h3><p>این کار باید جای مشخصی در ساختار داشته باشد، زیر توسعه‌ی سازمانی.</p></div>
+    <div class="card"><h3>اختیار اولویت‌بندی</h3><p>واحد باید بتواند درخواست‌ها را بر اساس اثرشان انتخاب کند و وقت لازم را از واحدها بخواهد.</p></div>
+    <div class="card"><h3>تیم ثابت</h3><p>کار داده و AI باید به عهده‌ی تیمی ثابت باشد، نه وقت قرضی از کارهای دیگر.</p></div>
+    <div class="card"><h3>ارتباط با مدیریت</h3><p>نتایج و اولویت‌ها باید به‌طور منظم با مدیریت مرور شوند.</p></div>
+    <div class="card"><h3>سبک و چابک</h3><p>بدون لایه‌ی اداری اضافه؛ متناسب با فضای صمیمی و کوچک شرکت.</p></div>
   </div>
-  <p class="lead">سه نفر، از نیروهای فعلی، بدون استخدام جدید. واحدی کوچک که می‌شود سریع تشکیلش داد و اگر لازم شد سریع هم جمعش کرد.</p>
-  <aside class="note">«واحد» را کوچک و غیربوروکراتیک نشان بده. این شرکت فضای صمیمی دارد و ساختار سنگین نمی‌خواهد. اگر انتقال کامل دو همکار BI حساس است، از همین‌جا بگو گزینه‌ی گزارش‌دهی دوگانه یا نیمه‌وقت هم قابل بحث است.</aside>
+  <aside class="note">اینجا درباره‌ی چارت و تعداد نفرات حرف نزن؛ فقط درباره‌ی اینکه چه چیزهایی لازم است. وقتی مدیر با این «باید»ها موافقت کرد، جزئیات ترکیب تیم در اسلایدهای بعد و در گفتگو مطرح می‌شود.</aside>
 </section>
 
 <!-- ۸ -->
