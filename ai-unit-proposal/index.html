@@ -76,6 +76,12 @@
   .card.feature > p { margin-bottom: 12px; }
   .stats { display: flex; flex-wrap: wrap; gap: 12px 40px; }
   .stats small { display: block; color: var(--muted); font-size: 13px; }
+  .split { display: flex; border-radius: 12px; overflow: hidden; margin: 4px 0 28px; min-height: 76px; }
+  .split > div { padding: 12px 18px; display: flex; flex-direction: column; justify-content: center; }
+  .split b { font-size: clamp(15px, 1.7vw, 20px); }
+  .split small { font-size: clamp(12px, 1.3vw, 15px); opacity: .85; }
+  .split .minor { flex: 4; background: var(--line); color: var(--ink); }
+  .split .major { flex: 6; background: var(--accent); color: var(--bg); }
   .card.warn { border-color: var(--warn); background: var(--warn-soft); }
   .card.warn h3 { color: var(--warn); }
 
@@ -261,6 +267,22 @@
 
 <!-- ۹ -->
 <section class="slide">
+  <p class="kicker">ارزش اصلی واحد</p>
+  <h2>فقط سرعت نیست؛ بیش از نیمی از ارزش در تصمیم‌های درست‌تر است</h2>
+  <div class="split">
+    <div class="major"><b>تصمیم‌سازی درست و خروجی مؤثرتر واحدها</b><small>بیش از نیمی از ارزش</small></div>
+    <div class="minor"><b>سرعت و کاهش کار تکراری</b><small>بخش دیگر ارزش</small></div>
+  </div>
+  <div class="grid g3">
+    <div class="card"><h3>خرید</h3><p>انتخاب تأمین‌کننده و زمان خرید بر اساس سابقه‌ی قیمت، کیفیت و موجودی انبار؛ نه خرید بیش از نیاز، نه کمبود.</p></div>
+    <div class="card"><h3>مالی</h3><p>دید روشن و به‌روز از نقدینگی و وضعیت چک‌ها، و هشدار زودهنگام پیش از اینکه مشکل جدی شود.</p></div>
+    <div class="card"><h3>فروش</h3><p>شناخت مشتریان کلیدی و روند تقاضا، تا تصمیم‌های قیمت‌گذاری و پیگیری به‌موقع و دقیق‌تر باشند.</p></div>
+  </div>
+  <aside class="note">پیام این اسلاید: صرفه‌جویی در زمان فقط شروع کار است. ارزش بزرگ‌تر این است که خرید، مالی و فروش با داده‌ی درست و به‌موقع تصمیم بگیرند و خروجی‌شان مؤثرتر شود. «بیش از نیمی» برآورد تجربی ماست؛ همین‌طور هم مطرحش کن. برای هر واحد اگر یک مثال واقعی از تصمیمی که با داده بهتر می‌شد گرفت داری، همان را بگو؛ اثرش از هر عددی بیشتر است.</aside>
+</section>
+
+<!-- ۱۰ -->
+<section class="slide">
   <p class="kicker">چرا من</p>
   <h2>این نقش را عملاً انجام می‌دهم؛ فقط هنوز رسمی نشده است</h2>
   <div class="grid">
@@ -272,7 +294,7 @@
   <aside class="note">با اعتمادبه‌نفس و بدون اغراق. از واژه‌ی «حق من است» استفاده نکن؛ حرف اصلی این است: «این نقش وجود دارد و من همین حالا انجامش می‌دهم. رسمی کردنش آن را پایدار و پاسخ‌گو می‌کند.» اگر کار هماهنگی را واقعاً تو انجام داده‌ای، یک مثال مشخص بزن.</aside>
 </section>
 
-<!-- ۱۰ -->
+<!-- ۱۱ -->
 <section class="slide">
   <p class="kicker">معیار موفقیت</p>
   <h2>در پایان ۹۰ روز، این‌ها را گزارش می‌کنیم</h2>
@@ -285,7 +307,7 @@
   <aside class="note">پیام این اسلاید: نتیجه شفاف و قابل اندازه‌گیری گزارش می‌شود. اگر مدیر عدد هدف خواست، واقع‌بینانه جواب بده؛ بهتر است بیشتر از قولت تحویل بدهی تا کمتر. پروژه‌ی چک‌ها (حدود ۳۸۰ ساعت در ماه) نمونه‌ی خوبی از همین شاخص‌هاست.</aside>
 </section>
 
-<!-- ۱۱ -->
+<!-- ۱۲ -->
 <section class="slide">
   <h1>بازی جدید،<br>چیدمان تازه می‌خواهد.</h1>
   <p class="lead">ممنون از وقتی که گذاشتید.</p>
