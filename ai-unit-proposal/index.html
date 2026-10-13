@@ -70,6 +70,10 @@
   }
   .card p { margin: 0; font-size: clamp(14px, 1.45vw, 17px); color: var(--muted); }
   .card .num { font-size: clamp(26px, 3.4vw, 40px); font-weight: 800; color: var(--accent); line-height: 1.2; }
+  .card.feature { grid-column: 1 / -1; border: 2px solid var(--accent); }
+  .card.feature > p { margin-bottom: 12px; }
+  .stats { display: flex; flex-wrap: wrap; gap: 12px 40px; }
+  .stats small { display: block; color: var(--muted); font-size: 13px; }
   .card.warn { border-color: var(--warn); background: var(--warn-soft); }
   .card.warn h3 { color: var(--warn); }
 
@@ -190,12 +194,21 @@
   <p class="kicker">شواهد: آنچه همین حالا ساخته‌ایم</p>
   <h2>این پیشنهاد روی کارِ انجام‌شده بنا شده است، نه روی وعده</h2>
   <div class="grid">
+    <div class="card feature">
+      <h3>ثبت مکانیزه‌ی چک‌ها و رسیدهای واریزی بانکی در ERP</h3>
+      <p>کاری که قبلاً سه نفر انجام می‌دادند، حالا یک نفر انجام می‌دهد.</p>
+      <div class="stats">
+        <div><div class="num">۳ ← ۱ نفر</div><small>نیروی لازم برای این کار</small></div>
+        <div><div class="num">۶۷٪</div><small>کاهش نیروی لازم</small></div>
+        <div><div class="num">۲ نیرو</div><small>آزاد شده برای کارهای ارزشمندتر</small></div>
+        <div><div class="num">≈ ۳۸۰ ساعت</div><small>در ماه، معادل کار دو نیروی تمام‌وقت</small></div>
+      </div>
+    </div>
     <div class="card"><div class="num"><span class="fill">[N]</span></div><h3>سند در پایگاه دانش (RAG)</h3><p>دانش پراکنده‌ی شرکت حالا قابل پرسیدن است.</p></div>
     <div class="card"><div class="num"><span class="fill">[N]</span></div><h3>سیستم متصل با MCP</h3><p><span class="fill">[مثلاً ERP، انبار، فروش]</span> با زبان طبیعی در دسترس است.</p></div>
     <div class="card"><div class="num"><span class="fill">[N]</span></div><h3>کاربر فعال</h3><p>در <span class="fill">[N]</span> واحد مختلف.</p></div>
-    <div class="card"><div class="num"><span class="fill">[N] ساعت</span></div><h3>صرفه‌جویی ماهانه (تخمینی)</h3><p>در کارهایی مثل <span class="fill">[یک مثال واقعی]</span>.</p></div>
   </div>
-  <aside class="note">مهم‌ترین اسلاید. فقط عدد واقعی بگذار؛ اگر عددی نداری، یک «قبل و بعد» واقعی از یک همکار تعریف کن (مثلاً: «فلانی برای پیدا کردن قرارداد ۲۰ دقیقه وقت می‌گذاشت، الان ۳۰ ثانیه»). اگر امکانش هست یک دموی ۶۰ ثانیه‌ای زنده نشان بده.</aside>
+  <aside class="note">پروژه‌ی چک‌ها را اول بگو؛ ملموس‌ترین نتیجه است و مدیر مالی هم می‌تواند تأییدش کند. محاسبه‌ی ۳۸۰ ساعت: ۲ نفر × ۴۴ ساعت در هفته × ۵۲ هفته ÷ ۱۲ ماه ≈ ۳۸۰ ساعت در ماه (حدود ۴٬۶۰۰ ساعت در سال). این عدد فقط وقتی درست است که آن سه نفر تمام‌وقت روی این کار بوده‌اند؛ اگر بخشی از وقتشان بود، به همان نسبت کمش کن. حساس: بگو آن دو نفر به کار ارزشمندتری منتقل شده‌اند (اگر واقعاً این‌طور است، بگو به چه کاری). این پیشنهاد نباید بوی تعدیل نیرو بدهد، وگرنه بقیه‌ی همکاران در برابر AI مقاومت می‌کنند. اگر می‌توانی یک دموی ۶۰ ثانیه‌ای از ثبت یک چک نشان بده.</aside>
 </section>
 
 <!-- ۵ -->
