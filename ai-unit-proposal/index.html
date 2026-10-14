@@ -166,6 +166,14 @@
   .kpi .ico { width: 58px; height: 58px; border-radius: 50%; background: var(--accent); color: var(--bg); margin-bottom: 14px; }
   .kpi .ico svg { width: 28px; height: 28px; }
   @media (min-width: 760px) { .feat, .alerts { grid-template-columns: repeat(2, 1fr); } }
+  .band {
+    display: flex; gap: 16px; align-items: center; margin-top: 26px;
+    background: var(--accent); color: var(--bg); border-radius: 18px; padding: 18px 22px;
+  }
+  .band .ico { flex: none; margin: 0; background: color-mix(in srgb, var(--bg) 18%, transparent); color: var(--bg); }
+  .band p { margin: 0; font-weight: 800; font-size: clamp(17px, 2.1vw, 25px); line-height: 1.6; }
+  @media (min-width: 900px) { .feat.f3 { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 760px) { .nums { grid-template-columns: repeat(2, 1fr); } }
   .card.warn { border-color: var(--warn); background: var(--warn-soft); }
   .card.warn h3 { color: var(--warn); }
   .card.warn.one h3 { color: var(--ink); }
@@ -310,9 +318,9 @@
     <li><p>کارهای تکراری مالی، فروش و انبار را با عامل‌های AI خودکار می‌کنیم.</p></li>
     <li><p>دانش شرکت را با RAG در دسترس همه‌ی همکاران قرار می‌دهیم.</p></li>
     <li><p>با تیم BI، داده را برای AI آماده و قابل اعتماد می‌کنیم.</p></li>
-    <li><p>با آموزش کوتاه و کاربردی، همه‌ی همکاران را همراه می‌کنیم.</p></li>
   </ol>
-  <aside class="note">ستون ۱ را پررنگ کن: خودکارسازی یک فرآیند بد فقط آن را سریع‌تر بد می‌کند. همین تفاوت این واحد را از «تیم فنی» جدا می‌کند و نشان می‌دهد چرا جایش زیر OD است.</aside>
+  <div class="band"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span><p>آموزش AI برای همه، با فرصت برابر؛ تا هر همکار توانمندی‌اش را نشان دهد.</p></div>
+  <aside class="note">مورد ۱ را پررنگ کن: خودکارسازی یک فرآیند بد فقط آن را سریع‌تر بد می‌کند. همین تفاوت این واحد را از «تیم فنی» جدا می‌کند و نشان می‌دهد چرا جایش زیر OD است. روی آموزش هم مکث کن: همه‌ی همکاران با فرصت برابر آموزش می‌بینند و هر کس می‌تواند توانمندی‌اش را نشان دهد. پذیرش AI بدون همراهی آدم‌ها اتفاق نمی‌افتد.</aside>
 </section>
 
 <!-- ۷ -->
@@ -341,6 +349,18 @@
 </section>
 
 <!-- ۹ -->
+<section class="slide">
+  <h2>چشم‌انداز</h2>
+  <p class="quote">روزی که برای انجام کار، دیگر کسی ERP را باز نکند؛ AI مستقیم انجامش می‌دهد.</p>
+  <div class="feat f3">
+    <div class="feat-item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><path d="M6 8h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span><p>هر همکار یک دستیار AI دارد که دانش و داده‌ی شرکت را می‌شناسد.</p></div>
+    <div class="feat-item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span><p>گزارش‌ها و هشدارها خودشان به آدم درست می‌رسند.</p></div>
+    <div class="feat-item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg></span><p>وقت همکاران به‌جای ورود داده، صرف تصمیم و رشد می‌شود.</p></div>
+  </div>
+  <aside class="note">اینجا آینده را تصویر کن، نه برنامه‌ی کوتاه‌مدت را. مثال اصلی: کسی برای ثبت یا گرفتن اطلاعات، آمیسا را باز نمی‌کند؛ از AI می‌خواهد و AI مستقیم در ERP انجامش می‌دهد. نتیجه‌ی ضمنی (که لازم نیست بگویی): شرکت به آدم‌هایی نیاز دارد که این AI را بسازند و نگه دارند.</aside>
+</section>
+
+<!-- ۱۰ -->
 <section class="slide">
   <h1>بازی جدید،<br>ساختار تازه می‌خواهد.</h1>
   <p class="lead">ممنون از وقتی که گذاشتید.</p>
