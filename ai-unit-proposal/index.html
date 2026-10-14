@@ -173,7 +173,16 @@
   .band .ico { flex: none; margin: 0; background: color-mix(in srgb, var(--bg) 18%, transparent); color: var(--bg); }
   .band p { margin: 0; font-weight: 800; font-size: clamp(17px, 2.1vw, 25px); line-height: 1.6; }
   @media (min-width: 900px) { .feat.f3 { grid-template-columns: repeat(3, 1fr); } }
-  @media (min-width: 760px) { .nums { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 900px) { .nums { grid-template-columns: repeat(3, 1fr); } }
+  .versus { display: grid; grid-template-columns: 1fr auto 1.4fr; gap: 20px; align-items: stretch; }
+  @media (max-width: 760px) { .versus { grid-template-columns: 1fr; } .vs-arrow { transform: rotate(-90deg); } }
+  .vs-old, .vs-new { border-radius: 20px; padding: 26px 24px; display: flex; flex-direction: column; justify-content: center; gap: 8px; }
+  .vs-old { background: var(--surface); border: 1px dashed var(--line); color: var(--muted); }
+  .vs-old p { text-decoration: line-through; text-decoration-color: var(--warn); text-decoration-thickness: 2px; }
+  .vs-new { background: var(--accent); color: var(--bg); }
+  .vs-old small, .vs-new small { font-size: clamp(13px, 1.4vw, 16px); font-weight: 600; opacity: .85; }
+  .vs-old p, .vs-new p { margin: 0; font-weight: 800; font-size: clamp(19px, 2.4vw, 30px); line-height: 1.6; }
+  .vs-arrow { align-self: center; justify-self: center; font-size: 34px; color: var(--accent); font-weight: 800; }
   .card.warn { border-color: var(--warn); background: var(--warn-soft); }
   .card.warn h3 { color: var(--warn); }
   .card.warn.one h3 { color: var(--ink); }
@@ -275,22 +284,16 @@
     <li class="proj"><span class="tl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 8h8"/><path d="M7 12h10"/><path d="M7 16h6"/></svg></span><span class="when">OCR چک</span><p>چک‌ها و رسیدهای واریزی بانکی خودکار خوانده و در ERP ثبت می‌شوند.</p></li>
     <li class="proj"><span class="tl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span class="when">RAG</span><p>دانش و اسناد پراکنده‌ی شرکت با یک سؤال ساده در دسترس همه است.</p></li>
     <li class="proj"><span class="tl-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></span><span class="when">MCP</span><p>سیستم‌های شرکت به AI وصل شده‌اند؛ می‌شود از آن‌ها پرسید و رویشان اپلیکیشن و ایجنت ساخت.</p></li>
-    <li><span class="when">امروز</span><p>کارهای AI زیادی در صف داریم؛ بیشتر از ظرفیت فعلی.</p></li>
     <li class="next"><span class="when">هدف</span><p>ساختارمند کردن همین مسیر.</p></li>
   </ol>
-  <aside class="note">این سه پروژه با همکاری تیم BI ساخته شده‌اند؛ این را شفاهی بگو. اگر مدیر درباره‌ی اثر OCR چک پرسید: کاری که قبلاً سه نفر انجام می‌دادند حالا یک نفر انجام می‌دهد. حرف اصلی اسلاید: کار AI جواب داده و حالا کارهای زیادی در صف داریم که با ظرفیت فعلی پیش نمی‌رود؛ قدم بعدی ساختارمند کردن آن است. اگر امکانش هست یک دموی ۶۰ ثانیه‌ای از یکی از پروژه‌ها نشان بده.</aside>
+  <aside class="note">این سه پروژه با همکاری تیم BI ساخته شده‌اند؛ این را شفاهی بگو. اگر مدیر درباره‌ی اثر OCR چک پرسید: کاری که قبلاً سه نفر انجام می‌دادند حالا یک نفر انجام می‌دهد. حرف اصلی اسلاید: کار AI جواب داده؛ قدم بعدی ساختارمند کردن آن است. اگر امکانش هست یک دموی ۶۰ ثانیه‌ای از یکی از پروژه‌ها نشان بده.</aside>
 </section>
 
 <!-- ۴ -->
 <section class="slide">
   <h2>ریشه‌ی مسئله</h2>
   <p class="quote">شرکت ما هنوز AI CoE ندارد.<small class="expand" dir="ltr">AI Center of Excellence</small></p>
-  <div class="feat">
-    <div class="feat-item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M9 3a4 4 0 1 0 0 8a4 4 0 1 0 0-8"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><p>AI CoE واحدی کوچک است که مسئولیت پذیرش AI در کل سازمان را به عهده دارد.</p></div>
-    <div class="feat-item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h11"/><path d="M10 12h11"/><path d="M10 18h11"/><path d="M4 6h1v4"/><path d="M4 10h2"/><path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></span><p>اولویت‌ها را تعیین می‌کند تا پروژه‌های AI به‌جای پراکندگی، به نتیجه برسند.</p></div>
-    <div class="feat-item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2a3 3 0 1 0 0 6a3 3 0 1 0 0-6"/><path d="M6 9a3 3 0 1 0 0 6a3 3 0 1 0 0-6"/><path d="M18 16a3 3 0 1 0 0 6a3 3 0 1 0 0-6"/><path d="M8.59 13.51l6.83 3.98"/><path d="M15.41 6.51l-6.82 3.98"/></svg></span><p>دانش، ابزار و تجربه‌ی AI را یک‌جا جمع می‌کند و به همه‌ی واحدها می‌رساند.</p></div>
-    <div class="feat-item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><p>قواعد استفاده‌ی امن از داده و AI را تعریف می‌کند و نتیجه را می‌سنجد.</p></div>
-  </div>
+  <p class="lead">واحدی کوچک که مسئولیت پیشبرد AI در کل سازمان را به عهده دارد.</p>
   <aside class="note">این اسلاید پل بین مسئله و راه‌حل است. حرف اصلی: کمبود ابزار یا آدم نیست؛ چیزی که نداریم، یک «مرکز تعالی هوش مصنوعی» (AI Center of Excellence) است: همان واحدی که سازمان‌های پیشرو برای پیشبرد AI می‌سازند. اسلاید بعد پیشنهاد می‌کند این مرکز را در اندازه‌ی شرکت خودمان بسازیم.</aside>
 </section>
 
@@ -300,11 +303,8 @@
   <div class="split2">
     <div class="panel"><b>تیم AI</b><span>زیر OD، با همان آدم‌هایی که این مسیر را تا اینجا آورده‌اند</span></div>
     <div class="checks">
-      <div class="check-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><p>این تیم رسماً پاسخ‌گوی پیشبرد AI و بهبود فرآیندها در کل شرکت باشد.</p></div>
       <div class="check-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><p>یک نفر روی زمان‌بندی و اولویت‌بندی کار تیم متمرکز باشد.</p></div>
-      <div class="check-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><p>تیم BI در کار AI آموزش می‌بیند و توانمند می‌شود.</p></div>
-      <div class="check-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><p>همکاران BI که در پروژه‌های AI همراه بوده‌اند به تیم می‌پیوندند و تجربه و مهارت را با هم رشد می‌دهیم.</p></div>
-      <div class="check-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><p>اهداف را با هم پیش می‌بریم و نتایج و اولویت‌ها را به‌طور منظم با مدیریت مرور می‌کنیم.</p></div>
+      <div class="check-item"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><p>همکاران BI که در پروژه‌های AI همراه بوده‌اند به تیم می‌پیوندند و در کار AI آموزش می‌بینند.</p></div>
     </div>
   </div>
   <aside class="note">اینجا درخواستت را روشن ولی بی‌ادعا مطرح کن: «پیشنهادم این است که مسئولیت این تیم با من باشد.» از واژه‌هایی مثل مدیر، رئیس یا زیردست استفاده نکن؛ تأکید روی «تیم» و «با هم» است. اگر مدیر درباره‌ی ترکیب دقیق تیم یا تقسیم وقت همکاران BI پرسید، بگو با هماهنگی سرپرست فعلی و متناسب با نیاز شرکت تنظیم می‌شود.</aside>
@@ -316,7 +316,6 @@
   <ol class="nums">
     <li><p>فرآیندها را با هر واحد ساده می‌کنیم، پیش از آنکه خودکارشان کنیم.</p></li>
     <li><p>کارهای تکراری مالی، فروش و انبار را با عامل‌های AI خودکار می‌کنیم.</p></li>
-    <li><p>دانش شرکت را با RAG در دسترس همه‌ی همکاران قرار می‌دهیم.</p></li>
     <li><p>با تیم BI، داده را برای AI آماده و قابل اعتماد می‌کنیم.</p></li>
   </ol>
   <div class="band"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span><p>آموزش AI برای همه، با فرصت برابر؛ تا هر همکار توانمندی‌اش را نشان دهد.</p></div>
@@ -352,16 +351,25 @@
 <section class="slide">
   <h2>چشم‌انداز</h2>
   <p class="quote">روزی که برای انجام کار، دیگر کسی ERP را باز نکند؛ AI مستقیم انجامش می‌دهد.</p>
-  <div class="feat f3">
+  <div class="feat">
     <div class="feat-item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 8V4H8"/><path d="M6 8h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span><p>هر همکار یک دستیار AI دارد که دانش و داده‌ی شرکت را می‌شناسد.</p></div>
     <div class="feat-item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span><p>گزارش‌ها و هشدارها خودشان به آدم درست می‌رسند.</p></div>
-    <div class="feat-item"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg></span><p>وقت همکاران به‌جای ورود داده، صرف تصمیم و رشد می‌شود.</p></div>
   </div>
-  <div class="band"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M9 3a4 4 0 1 0 0 8a4 4 0 1 0 0-8"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><p>به‌جای کم کردن آدم‌ها برای چابک شدن، اول سازمانی چابک می‌سازیم؛ بعد می‌بینیم هر کس در آن چه نقشی پیدا می‌کند.</p></div>
-  <aside class="note">نوار پایین را حتماً بگو: هدف حذف آدم‌ها نیست. اول سازمان چابک ساخته می‌شود و در همین مسیر روشن می‌شود هر کس چه نقشی بازی می‌کند. این جمله جلوی ترس همکاران از AI را می‌گیرد. اینجا آینده را تصویر کن، نه برنامه‌ی کوتاه‌مدت را. مثال اصلی: کسی برای ثبت یا گرفتن اطلاعات، آمیسا را باز نمی‌کند؛ از AI می‌خواهد و AI مستقیم در ERP انجامش می‌دهد. نتیجه‌ی ضمنی (که لازم نیست بگویی): شرکت به آدم‌هایی نیاز دارد که این AI را بسازند و نگه دارند.</aside>
+  <aside class="note">اینجا آینده را تصویر کن، نه برنامه‌ی کوتاه‌مدت را. مثال اصلی: کسی برای ثبت یا گرفتن اطلاعات، آمیسا را باز نمی‌کند؛ از AI می‌خواهد و AI مستقیم در ERP انجامش می‌دهد. نتیجه‌ی ضمنی (که لازم نیست بگویی): شرکت به آدم‌هایی نیاز دارد که این AI را بسازند و نگه دارند.</aside>
 </section>
 
 <!-- ۱۰ -->
+<section class="slide">
+  <h2>نگاه ما به آدم‌ها</h2>
+  <div class="versus">
+    <div class="vs-old"><small>به‌جای</small><p>کم کردن آدم‌ها برای سبک و چابک شدن</p></div>
+    <div class="vs-arrow" aria-hidden="true">←</div>
+    <div class="vs-new"><small>رویکرد ما</small><p>اول سازمانی چابک می‌سازیم؛ بعد می‌بینیم هر کس در آن چه نقشی پیدا می‌کند.</p></div>
+  </div>
+  <aside class="note">این اسلاید جلوی ترس همکاران از AI را می‌گیرد. هدف حذف آدم‌ها نیست؛ اول سازمان چابک ساخته می‌شود و در همین مسیر روشن می‌شود هر کس چه نقشی بازی می‌کند.</aside>
+</section>
+
+<!-- ۱۱ -->
 <section class="slide">
   <h1>بازی جدید،<br>ساختار تازه می‌خواهد.</h1>
   <p class="lead">ممنون از وقتی که گذاشتید.</p>
