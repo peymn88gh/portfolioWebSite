@@ -1,6 +1,6 @@
 # AI Unit Proposal
 
-A Persian (RTL) slide deck proposing a small "Process Improvement & AI" unit inside Organizational Development, plus a guide for preparing and running the meeting.
+A Persian (RTL) slide deck proposing that the team which naturally formed around the company's AI projects be made official, with a team-building approach to the change ahead, plus a guide for preparing and running the meeting.
 
 - `index.html`: the deck, a single self-contained file. Open it in a browser.
   - Next / previous: `←` / `→` (RTL), Space, or swipe on mobile
